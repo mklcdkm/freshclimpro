@@ -1,0 +1,2147 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FRESH CLIM PRO | Climatisation Guadeloupe – Vente, Pose, Entretien</title>
+    <meta name="description"
+        content="FRESH CLIM PRO, expert en climatisation en Guadeloupe. Installation dès 499€, paiement en 4x sans frais. Devis gratuit. Appelez le 0690 38 32 71.">
+    <meta name="keywords"
+        content="climatisation guadeloupe, pose climatiseur guadeloupe, entretien climatiseur guadeloupe, installation clim guadeloupe">
+    <meta name="author" content="FRESH CLIM PRO">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="FRESH CLIM PRO | Climatisation Guadeloupe">
+    <meta property="og:description" content="Installation dès 499€, paiement en 4x sans frais. Devis gratuit.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700;800;900&family=DM+Sans:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0a1f3c;
+            --navy-dark: #061529;
+            --navy-light: #0f2d54;
+            --cyan: #00cfff;
+            --cyan-dark: #00a8d9;
+            --white-cool: #f0f8ff;
+            --green-accent: #00c853;
+            --green-dark: #00a844;
+            --gold: #ffd700;
+            --orange-accent: #ff6b35;
+            --text-light: #e8f4ff;
+            --text-muted: #8fb4d4;
+            --card-bg: rgba(15, 45, 84, 0.8);
+            --card-border: rgba(0, 207, 255, 0.2);
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--navy-dark);
+            color: var(--text-light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Exo 2', sans-serif;
+        }
+
+        /* Ice Particles Animation */
+        #ice-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            background: radial-gradient(circle, rgba(0, 207, 255, 0.9) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float-up linear infinite;
+            box-shadow: 0 0 6px rgba(0, 207, 255, 0.4);
+        }
+
+        @keyframes float-up {
+            0% {
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 0.5;
+            }
+
+            100% {
+                transform: translateY(-100px) scale(1);
+                opacity: 0;
+            }
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(10, 31, 60, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--card-border);
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            box-shadow: var(--shadow);
+        }
+
+        .header-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text .brand {
+            font-family: 'Exo 2', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 800;
+            font-style: italic;
+            color: var(--cyan);
+            line-height: 1.1;
+        }
+
+        .logo-text .brand-white {
+            font-family: 'Exo 2', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 800;
+            font-style: italic;
+            color: var(--white-cool);
+            line-height: 1.1;
+        }
+
+        .logo-text .tagline {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--cyan);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--cyan);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .header-cta {
+            /* background: var(--green-accent); */
+            color: var(--text-light);
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+            /* box-shadow: 0 4px 15px rgba(0, 200, 83, 0.3); */
+        }
+
+        .header-cta:hover {
+            color: var(--cyan);
+            transform: translateY(-2px);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.8rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 1.5rem 4rem;
+            background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 50%, var(--navy-light) 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(0, 200, 83, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 50%, rgba(0, 207, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 100%, rgba(0, 207, 255, 0.1) 0%, transparent 40%);
+            z-index: 1;
+        }
+
+        .hero-bg-graphic {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 0;
+            opacity: 0.15;
+        }
+
+        .hero-bg-graphic svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--cyan), var(--green-accent));
+            color: var(--navy-dark);
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 20px rgba(0, 207, 255, 0.3);
+        }
+
+        .hero h1 .fire {
+            display: inline-block;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        .hero h2 {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            font-weight: 600;
+            color: var(--cyan);
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .trust-badges {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+            /* color: var(--green-accent); */
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .trust-badge svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            font-family: 'Exo 2', sans-serif;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--cyan), var(--cyan-dark));
+            color: var(--navy-dark);
+            box-shadow: 0 6px 25px rgba(0, 207, 255, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 35px rgba(0, 207, 255, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-light);
+            border: 2px solid var(--cyan);
+        }
+
+        .btn-secondary:hover {
+            background: var(--cyan);
+            color: var(--navy-dark);
+            transform: translateY(-3px);
+        }
+
+        .btn-green {
+            background: linear-gradient(135deg, var(--green-accent), var(--green-dark));
+            color: white;
+            box-shadow: 0 6px 25px rgba(0, 200, 83, 0.4);
+        }
+
+        .btn-green:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 35px rgba(0, 200, 83, 0.5);
+        }
+
+        /* Section Styles */
+        .section {
+            position: relative;
+            padding: 5rem 1.5rem;
+            z-index: 2;
+        }
+
+        .section-alt {
+            background: rgba(10, 31, 60, 0.85);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--text-light), var(--cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .section-title .accent-line {
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--cyan), var(--green-accent));
+            border-radius: 2px;
+            margin: 1rem auto;
+        }
+
+        /* Prestations Cards */
+        .prestations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .prestation-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+        }
+
+        .prestation-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--cyan);
+            box-shadow: 0 20px 40px rgba(0, 207, 255, 0.15);
+        }
+
+        .prestation-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--cyan), var(--green-accent));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 8px 25px rgba(0, 207, 255, 0.3);
+        }
+
+        .prestation-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .prestation-card p {
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* Promo Banner */
+        .promo-banner {
+            background: linear-gradient(135deg, #00c853 0%, #00a844 50%, #008f3a 100%);
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .promo-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(45deg,
+                    transparent,
+                    transparent 20px,
+                    rgba(255, 255, 255, 0.03) 20px,
+                    rgba(255, 255, 255, 0.03) 40px);
+            animation: stripe-move 20s linear infinite;
+        }
+
+        @keyframes stripe-move {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(56px, 0);
+            }
+        }
+
+        .promo-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .promo-banner h2 {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-weight: 900;
+            color: white;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .promo-features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .promo-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+
+        .promo-feature span:first-child {
+            font-size: 1.3rem;
+        }
+
+        .promo-banner .btn {
+            background: white;
+            color: var(--green-dark);
+            font-size: 1.1rem;
+            padding: 1rem 2.5rem;
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .promo-banner .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Why Choose Us */
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .why-card {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            background: var(--card-bg);
+            border-radius: 16px;
+            border: 1px solid var(--card-border);
+            transition: all 0.3s;
+        }
+
+        .why-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--cyan);
+        }
+
+        .why-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .why-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-light);
+        }
+
+        /* Pricing Cards */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            align-items: stretch;
+        }
+
+        .pricing-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--cyan);
+            box-shadow: 0 0 30px rgba(0, 207, 255, 0.2);
+        }
+
+        .pricing-card.featured::before {
+            content: 'POPULAIRE';
+            position: absolute;
+            top: 20px;
+            right: -35px;
+            background: var(--cyan);
+            color: var(--navy-dark);
+            padding: 0.3rem 3rem;
+            font-size: 0.7rem;
+            font-weight: 800;
+            transform: rotate(45deg);
+            letter-spacing: 1px;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .pricing-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-card .price {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--cyan);
+            margin: 1rem 0;
+            font-family: 'Exo 2', sans-serif;
+        }
+
+        .pricing-card .price small {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: 1.5rem 0;
+            flex-grow: 1;
+        }
+
+        .pricing-features li {
+            padding: 0.5rem 0;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            color: var(--green-accent);
+            font-weight: 700;
+        }
+
+        .pricing-note {
+            text-align: center;
+            margin-top: 2rem;
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        /* Zone d'Intervention */
+        .zone-section {
+            background: linear-gradient(180deg, var(--navy) 0%, var(--navy-dark) 100%);
+        }
+
+        .zone-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .zone-text h3 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .zone-text p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .zone-map {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid var(--card-border);
+            aspect-ratio: 4/3;
+        }
+
+        .zone-map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            filter: brightness(0.8) contrast(1.1) saturate(0.8) hue-rotate(180deg);
+        }
+
+        .zone-map-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 207, 255, 0.1), rgba(0, 200, 83, 0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+        }
+
+        .zone-map-overlay svg {
+            width: 60%;
+            height: 60%;
+            opacity: 0.3;
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+        }
+
+        .stars {
+            color: var(--gold);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-card blockquote {
+            color: var(--text-light);
+            font-style: italic;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .testimonial-card blockquote::before {
+            content: '"';
+            position: absolute;
+            left: 0;
+            top: -0.5rem;
+            font-size: 2rem;
+            color: var(--cyan);
+            font-family: Georgia, serif;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--cyan), var(--green-accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            color: var(--navy-dark);
+            font-size: 1.1rem;
+        }
+
+        .author-info strong {
+            display: block;
+            color: var(--text-light);
+        }
+
+        .author-info span {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* Contact Form */
+        .contact-section {
+            background: linear-gradient(180deg, var(--navy-dark) 0%, var(--navy) 100%);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 3rem;
+        }
+
+        .contact-form {
+            /* background: var(--card-bg); */
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.9rem 1.2rem;
+            border: 1px solid var(--card-border);
+            border-radius: 10px;
+            background: rgba(10, 31, 60, 0.6);
+            color: var(--text-light);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--cyan);
+            box-shadow: 0 0 15px rgba(0, 207, 255, 0.2);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 2.5rem;
+        }
+
+        /* Le lien englobe toute la ligne */
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            /* margin-bottom: 30px; */
+            gap: 20px;
+            text-decoration: none;
+            color: inherit;
+            padding: 12px;
+            border-radius: 12px;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+            cursor: pointer;
+        }
+
+        .contact-item:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+            transform: translateX(4px);
+        }
+
+        .icon-wrapper {
+            flex-shrink: 0;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            transition: all 0.2s ease;
+        }
+
+        .contact-item:hover .icon-wrapper {
+            border-color: var(--cyan);
+            background: rgba(0, 207, 255, 0.1);
+        }
+
+        .icon-wrapper svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--cyan);
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .contact-label {
+            color: var(--text-muted);
+            font-size: 16px;
+            font-weight: 400;
+        }
+
+        .contact-value {
+            color: var(--text-light);
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .whatsapp-btn-large {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            background: #25D366;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.3);
+        }
+
+        .whatsapp-btn-large:hover {
+            background: #20bd5a;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 35px rgba(37, 211, 102, 0.4);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--navy-dark);
+            border-top: 1px solid var(--card-border);
+            padding: 4rem 1.5rem 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-brand .logo-container {
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .footer h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--cyan);
+        }
+
+        .footer-contact li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+        }
+
+        .footer-contact a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-contact a:hover {
+            color: var(--cyan);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 3rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid var(--card-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom a {
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+
+        .footer-bottom a:hover {
+            color: var(--cyan);
+        }
+
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            transition: all 0.3s;
+            animation: whatsapp-pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 35px rgba(37, 211, 102, 0.5);
+        }
+
+        .whatsapp-float svg {
+            width: 32px;
+            height: 32px;
+            fill: white;
+        }
+
+        @keyframes whatsapp-pulse {
+
+            0%,
+            100% {
+                box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
+            }
+
+            50% {
+                box-shadow: 0 6px 35px rgba(37, 211, 102, 0.6), 0 0 0 10px rgba(37, 211, 102, 0.1);
+            }
+        }
+
+        /* Mobile Menu */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(6, 21, 41, 0.98);
+            z-index: 999;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .mobile-nav.active {
+            display: flex;
+        }
+
+        .mobile-nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 700;
+            font-family: 'Exo 2', sans-serif;
+            transition: color 0.3s;
+        }
+
+        .mobile-nav a:hover {
+            color: var(--cyan);
+        }
+
+        .mobile-nav-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .zone-content {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .why-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-inner {
+                padding: 0.6rem 1rem;
+            }
+
+            .logo-img {
+                width: 40px;
+                height: 40px;
+            }
+
+            .logo-text .brand {
+                font-size: 1.1rem;
+            }
+
+            .logo-text .tagline {
+                font-size: 0.55rem;
+            }
+
+            .header-cta {
+                padding: 0.5rem 0.8rem;
+                font-size: 0.8rem;
+            }
+
+            .header-cta svg {
+                width: 14px;
+                height: 14px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero {
+                padding-top: 6rem;
+                min-height: auto;
+                padding-bottom: 3rem;
+            }
+
+            .hero h1 {
+                font-size: clamp(1.5rem, 7vw, 2.2rem);
+            }
+
+            .hero h2 {
+                font-size: clamp(1rem, 4vw, 1.4rem);
+            }
+
+            .hero p {
+                font-size: 0.95rem;
+            }
+
+            .hero-badge {
+                font-size: 0.7rem;
+                padding: 0.4rem 1rem;
+            }
+
+            .trust-badges {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.75rem;
+            }
+
+            .trust-badge {
+                font-size: 0.85rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 320px;
+                padding: 0.85rem 1.5rem;
+                font-size: 0.95rem;
+            }
+
+            .section {
+                padding: 3rem 1rem;
+            }
+
+            .section-title h2 {
+                font-size: clamp(1.4rem, 5vw, 2rem);
+            }
+
+            .section-title p {
+                font-size: 0.95rem;
+            }
+
+            .prestations-grid,
+            .pricing-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .prestation-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form {
+                padding: 1.5rem;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+            }
+
+            .why-card {
+                padding: 1.5rem 1rem;
+            }
+
+            .promo-banner {
+                padding: 3rem 1rem;
+            }
+
+            .promo-banner h2 {
+                font-size: clamp(1.3rem, 5vw, 2rem);
+            }
+
+            .promo-features {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .promo-feature {
+                font-size: 0.95rem;
+            }
+
+            .zone-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .zone-text h3 {
+                font-size: 1.4rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .pricing-card.featured::before {
+                font-size: 0.6rem;
+                right: -40px;
+                top: 15px;
+                padding: 0.25rem 2.5rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-inner {
+                padding: 0.5rem 0.75rem;
+            }
+
+            .logo-img {
+                width: 35px;
+                height: 35px;
+            }
+
+            .logo-text .brand {
+                font-size: 0.95rem;
+            }
+
+            .logo-text .tagline {
+                display: none;
+            }
+
+            .header-cta span {
+                display: none;
+            }
+
+            .header-cta {
+                padding: 0.5rem;
+                border-radius: 50%;
+                width: 38px;
+                height: 38px;
+                justify-content: center;
+            }
+
+            .header-cta svg {
+                width: 18px;
+                height: 18px;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 2.5rem 0.75rem;
+            }
+
+            .hero {
+                padding: 5.5rem 0.75rem 2.5rem;
+            }
+
+            .hero h1 {
+                font-size: 1.4rem;
+            }
+
+            .hero h2 {
+                font-size: 1rem;
+            }
+
+            .hero p {
+                font-size: 0.85rem;
+            }
+
+            .contact-form {
+                padding: 1.25rem;
+            }
+
+            .whatsapp-float {
+                bottom: 1.2rem;
+                right: 1.2rem;
+                width: 52px;
+                height: 52px;
+            }
+
+            .whatsapp-float svg {
+                width: 26px;
+                height: 26px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .hero h1 {
+                font-size: 1.25rem;
+            }
+
+            .hero h2 {
+                font-size: 0.9rem;
+            }
+
+            .btn {
+                padding: 0.75rem 1rem;
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .contact-value {
+                font-size: 18px;
+            }
+        }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .fade-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .coordonee {
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Ice Particles Background -->
+    <div id="ice-particles"></div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-inner">
+            <div class="logo-container">
+                <img src="logo.png" alt="FRESH CLIM PRO Logo" class="logo-img">
+                <div class="logo-text">
+                    <span>
+                        <span class="brand-white">FRESH</span>
+                        <span class="brand">CLIM </span>
+                        <span class="brand-white">PRO</span>
+                        <!-- <span class="tagline">Vente Installation • Entretien Dépannage</span> -->
+                    </span>
+
+                </div>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#prestations">Prestations</a></li>
+                    <li><a href="#tarifs">Tarifs</a></li>
+                    <li><a href="#avis">Avis</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="tel:0690383271" class="header-cta">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                </svg>
+                0690 38 32 71
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">☰</button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <button class="mobile-nav-close" id="mobileNavClose">✕</button>
+        <a href="#accueil" class="mobile-nav-link">Accueil</a>
+        <a href="#prestations" class="mobile-nav-link">Prestations</a>
+        <a href="#apropos" class="mobile-nav-link">A propos</a>
+        <a href="#tarifs" class="mobile-nav-link">Tarifs</a>
+        <a href="#avis" class="mobile-nav-link">Avis</a>
+        <a href="#contact" class="mobile-nav-link">Contact</a>
+        <a href="tel:0690383271" class="btn btn-green">📞 0690 38 32 71</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="accueil">
+        <!-- Tropical Background Graphic -->
+        <div class="hero-bg-graphic">
+            <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+                <!-- Palm tree silhouettes -->
+                <path
+                    d="M100 900 L120 600 Q140 400 200 300 Q160 350 140 400 Q130 350 150 280 Q110 320 100 400 Q80 320 60 280 Q90 350 100 400 Q80 350 40 300 Q100 400 120 600 Z"
+                    fill="currentColor" opacity="0.5" />
+                <path
+                    d="M1300 900 L1280 550 Q1260 380 1200 280 Q1240 330 1260 380 Q1270 330 1250 260 Q1290 300 1300 380 Q1320 300 1340 260 Q1310 330 1300 380 Q1320 330 1360 280 Q1300 380 1280 550 Z"
+                    fill="currentColor" opacity="0.5" />
+                <!-- Mountains -->
+                <path
+                    d="M0 700 Q200 500 400 600 Q600 450 800 550 Q1000 400 1200 500 Q1350 450 1440 550 L1440 900 L0 900 Z"
+                    fill="currentColor" opacity="0.3" />
+                <!-- Ocean waves -->
+                <path
+                    d="M0 750 Q180 720 360 740 Q540 760 720 730 Q900 700 1080 740 Q1260 780 1440 750 L1440 900 L0 900 Z"
+                    fill="currentColor" opacity="0.2" />
+            </svg>
+        </div>
+
+        <div class="hero-content">
+            <span class="hero-badge">❄️ Expert Climatisation Guadeloupe</span>
+            <h1>
+                <span class="fire">🔥</span> STOP À LA CHALEUR ÉTOUFFANTE ! <span class="fire">🔥</span>
+            </h1>
+            <h2>Transformez votre maison en un véritable havre de fraîcheur</h2>
+            <p>Installation de climatiseur à partir de seulement <strong>499€</strong> – Paiement en 4 fois sans frais
+            </p>
+
+            <div class="trust-badges">
+                <span class="trust-badge">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                    </svg>
+                    Installation rapide
+                </span>
+                <span class="trust-badge">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                    </svg>
+                    Matériel performant
+                </span>
+                <span class="trust-badge">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                    </svg>
+                    Confort immédiat
+                </span>
+            </div>
+
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">Demander un devis gratuit →</a>
+                <a href="tel:0690383271" class="btn btn-secondary">📞 Nous appeler : 0690 38 32 71</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nos Prestations -->
+    <section class="section section-alt" id="prestations">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Nos Prestations</h2>
+                <div class="accent-line"></div>
+                <p>Des solutions complètes pour votre confort thermique en Guadeloupe</p>
+            </div>
+            <div class="prestations-grid">
+                <div class="prestation-card fade-in">
+                    <div class="prestation-icon">🛒</div>
+                    <h3>Vente</h3>
+                    <p>Climatiseurs performants et économiques, adaptés au climat tropical de la Guadeloupe. Toutes
+                        marques disponibles.</p>
+                </div>
+                <div class="prestation-card fade-in">
+                    <div class="prestation-icon">🔧</div>
+                    <h3>Installation</h3>
+                    <p>Pose rapide et professionnelle dès 499€. Mise en service incluse. Intervention sur toute la
+                        Guadeloupe.</p>
+                </div>
+                <div class="prestation-card fade-in">
+                    <div class="prestation-icon">🛠️</div>
+                    <h3>Entretien & Dépannage</h3>
+                    <p>Entretien régulier, nettoyage, recharge, dépannage toutes marques. Réactivité garantie.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- À Propos -->
+    <section class="section" id="apropos">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>À Propos</h2>
+                <div class="accent-line"></div>
+            </div>
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <p class="fade-in" style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.8;">
+                    Basés en Guadeloupe depuis plus de 10 ans, nous sommes spécialisés dans la climatisation
+                    résidentielle et professionnelle. Notre expertise nous permet de vous
+                    proposer des solutions adaptées : résistance à l'humidité, traitement anti-corrosion et matériel
+                    conçu pour durer.
+                </p>
+                <br>
+                <p class="fade-in" style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.8;">Notre équipe de techniciens qualifiés intervient rapidement sur toute la Guadeloupe
+                    pour l'installation, l'entretien et le dépannage de vos climatiseurs.</p>
+                 <br>   
+                <p class="fade-in" style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.8;">Notre mission : vous garantir un air frais, sain et des économies d'énergie durables.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offre Spéciale Banner -->
+    <!-- <section class="promo-banner" id="offre">
+        <div class="promo-content">
+            <h2>⚡ Offre Spéciale ⚡</h2>
+            <div class="promo-features">
+                <span class="promo-feature">
+                    <span>⚡</span>
+                    <span>Installation à partir de <strong>499€</strong> seulement !</span>
+                </span>
+                <span class="promo-feature">
+                    <span>💳</span>
+                    <span>Paiement en 4 fois sans frais possible</span>
+                </span>
+                <span class="promo-feature">
+                    <span>🌴</span>
+                    <span>Idéal pour affronter le climat tropical en toute sérénité</span>
+                </span>
+            </div>
+            <a href="#contact" class="btn">J'en profite maintenant →</a>
+        </div>
+    </section> -->
+
+    <!-- Pourquoi Nous Choisir -->
+    <section class="section" id="pourquoi">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Pourquoi Nous Choisir</h2>
+                <div class="accent-line"></div>
+                <p>Les raisons qui font la différence pour nos clients</p>
+            </div>
+            <div class="why-grid">
+                <div class="why-card fade-in">
+                    <div class="why-icon">🌴</div>
+                    <h3>Intervention sur toute la Guadeloupe</h3>
+                </div>
+                <div class="why-card fade-in">
+                    <div class="why-icon">⚡</div>
+                    <h3>Installation rapide et professionnelle</h3>
+                </div>
+                <div class="why-card fade-in">
+                    <div class="why-icon">💳</div>
+                    <h3>Paiement en 4 fois sans frais</h3>
+                </div>
+                <div class="why-card fade-in">
+                    <div class="why-icon">💰</div>
+                    <h3>Tarifs accessibles dès 499€</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tarifs -->
+    <section class="section section-alt" id="tarifs">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Nos Tarifs</h2>
+                <div class="accent-line"></div>
+                <p>Des prix transparents et compétitifs pour toutes les bourses</p>
+            </div>
+            <div class="pricing-grid">
+                <!-- Card 1 -->
+                <div class="pricing-card featured fade-in">
+                    <div class="icon">❄️</div>
+                    <h3>Installation Mono-Split</h3>
+                    <div class="price">À partir de 499 €</div>
+                    <ul class="pricing-features">
+                        <li>Fourniture + pose complète</li>
+                        <li>Mise en service incluse</li>
+                        <li>Garantie matériel</li>
+                        <li>Intervention rapide</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Demander un devis</a>
+                </div>
+                <!-- Card 2 -->
+                <div class="pricing-card fade-in">
+                    <div class="icon">🛠️</div>
+                    <h3>Entretien / Dépannage</h3>
+                    <div class="price">Sur devis</div>
+                    <ul class="pricing-features">
+                        <li>Nettoyage filtres</li>
+                        <li>Vérification circuit</li>
+                        <li>Recharge fluide</li>
+                        <li>Rapport d'intervention</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-secondary">Nous contacter</a>
+                </div>
+                <!-- Card 3 -->
+                <div class="pricing-card fade-in">
+                    <div class="icon">🏢</div>
+                    <h3>Multi-Split / Tertiaire</h3>
+                    <div class="price">Devis personnalisé</div>
+                    <ul class="pricing-features">
+                        <li>Audit sur place</li>
+                        <li>Installation multi-pièces</li>
+                        <li>Bureaux et commerces</li>
+                        <li>Solution sur mesure</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-secondary">Devis gratuit</a>
+                </div>
+            </div>
+            <p class="pricing-note fade-in">💳 Paiement en 4 fois sans frais disponible sur toutes nos prestations</p>
+        </div>
+    </section>
+
+    <!-- Zone d'Intervention -->
+    <section class="section zone-section" id="zone">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Zone d'Intervention</h2>
+                <div class="accent-line"></div>
+            </div>
+            <div class="zone-content">
+                <div class="zone-text fade-in-left">
+                    <h3>Nous intervenons sur toute la Guadeloupe 🌴</h3>
+                    <p>De Pointe-à-Pitre à Basse-Terre, du Gosier au Moule, de Sainte-Anne à Sainte-Rose... Notre équipe
+                        se déplace dans toutes les communes de l'archipel pour vous offrir un service de qualité.</p>
+                    <p>Que vous soyez en ville ou en zone rurale, nos techniciens interviennent rapidement pour
+                        l'installation, l'entretien ou le dépannage de votre climatiseur.</p>
+                    <a href="#contact" class="btn btn-primary">Demander une intervention →</a>
+                </div>
+                <div class="zone-map fade-in-right">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d245347.35294889!2d-61.6!3d16.25!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8c11ec2a5c1f2e15%3A0x3c8c7c1e5f5f5f5f!2sGuadeloupe!5e0!3m2!1sfr!2sfr!4v1700000000000!5m2!1sfr!2sfr"
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                        title="Carte Guadeloupe">
+                    </iframe>
+                    <div class="zone-map-overlay">
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Simplified Guadeloupe butterfly shape -->
+                            <path
+                                d="M100 20 Q80 40 60 60 Q40 80 50 100 Q40 110 30 130 Q50 140 70 150 Q60 170 80 180 Q100 170 110 160 Q120 170 140 180 Q160 170 150 150 Q170 140 160 120 Q180 100 170 80 Q150 60 130 40 Q120 30 100 20 Z"
+                                fill="rgba(0, 207, 255, 0.3)" stroke="#00cfff" stroke-width="2" />
+                            <!-- Location pin -->
+                            <circle cx="100" cy="100" r="15" fill="#00cfff" opacity="0.8" />
+                            <circle cx="100" cy="100" r="8" fill="#0a1f3c" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Avis Clients -->
+    <section class="section section-alt" id="avis">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Avis Clients</h2>
+                <div class="accent-line"></div>
+                <p>Ce que nos clients disent de nous</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <blockquote>Installation faite en moins de 2h, technicien très professionnel. Je recommande à 100% !
+                    </blockquote>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SK</div>
+                        <div class="author-info">
+                            <strong>Sandrine K.</strong>
+                            <span>Pointe-à-Pitre</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <blockquote>Climatiseur posé rapidement, prix honnête et paiement en plusieurs fois, super !
+                    </blockquote>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JL</div>
+                        <div class="author-info">
+                            <strong>Jean-Marc L.</strong>
+                            <span>Basse-Terre</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <blockquote>Dépannage le jour même de mon appel. Efficace et sérieux.</blockquote>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MD</div>
+                        <div class="author-info">
+                            <strong>Marlène D.</strong>
+                            <span>Le Gosier</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulaire de Contact -->
+    <section class="section contact-section" id="contact">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Demandez votre devis gratuit</h2>
+                <div class="accent-line"></div>
+                <p>Remplissez le formulaire ci-dessous et recevez votre devis sous 24h</p>
+            </div>
+            <div class="contact-grid">
+                <form class="contact-form fade-in-left" id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Nom complet *</label>
+                            <input type="text" id="name" name="name" required placeholder="Votre nom">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Téléphone *</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="0690 XX XX XX">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="votre@email.com">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="service">Type de prestation *</label>
+                            <select id="service" name="service" required>
+                                <option value="">Sélectionnez...</option>
+                                <option value="installation">Installation</option>
+                                <option value="entretien">Entretien</option>
+                                <option value="depannage">Dépannage</option>
+                                <option value="autre">Autre</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="commune">Commune en Guadeloupe *</label>
+                            <input type="text" id="commune" name="commune" required placeholder="Votre commune">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="surface">Surface à climatiser (m²)</label>
+                        <input type="number" id="surface" name="surface" placeholder="Ex: 50">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Décrivez votre besoin..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Envoyer ma demande →</button>
+                </form>
+
+                <div class="contact-info fade-in-right">
+                    <!-- Téléphone cliquable -->
+                    <h3 class="coordonee">Coordonnée</h3>
+
+                    <a href="tel:0690383271" class="contact-item" aria-label="Appeler le 0690 38 32 71">
+                        <div class="icon-wrapper">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path
+                                    d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z" />
+                            </svg>
+                        </div>
+                        <div class="contact-details">
+                            <span class="contact-label">Téléphone</span>
+                            <span class="contact-value">0690 38 32 71</span>
+                        </div>
+                    </a>
+
+                    <!-- Email cliquable -->
+                    <a href="mailto:freshclimp@gmail.com" class="contact-item"
+                        aria-label="Envoyer un email à freshclimp@gmail.com">
+                        <div class="icon-wrapper">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path
+                                    d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                            </svg>
+                        </div>
+                        <div class="contact-details">
+                            <span class="contact-label">Email</span>
+                            <span class="contact-value">freshclimp@gmail.com</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="logo-container">
+                    <img src="logo.png" alt="FRESH CLIM PRO Logo" class="logo-img" style="width: 40px; height: 40px;">
+                    <div class="logo-text">
+                        <span class="brand" style="font-size: 1.1rem;">freshclim pro</span>
+                    </div>
+                </div>
+                <p>Le froid maîtrisé, le confort garanti 🌴</p>
+                <p style="font-size: 0.9rem;">Votre expert en climatisation en Guadeloupe. Vente, installation et
+                    entretien de climatiseurs pour particuliers et professionnels.</p>
+                <a href="https://www.facebook.com/freshclimpro" target="_blank" rel="noopener noreferrer"
+                    style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--cyan); text-decoration: none; font-weight: 600; font-size: 0.95rem; margin-top: 0.75rem; transition: color 0.3s;"
+                    onmouseover="this.style.color='#00cfff'" onmouseout="this.style.color='var(--cyan)'">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                    </svg>
+                    Suivez-nous sur Facebook
+                </a>
+            </div>
+            <div>
+                <h4>Liens rapides</h4>
+                <ul class="footer-links">
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#prestations">Prestations</a></li>
+                    <li><a href="#tarifs">Tarifs</a></li>
+                    <li><a href="#avis">Avis clients</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Nos prestations</h4>
+                <ul class="footer-links">
+                    <li><a href="#prestations">Vente de climatiseurs</a></li>
+                    <li><a href="#prestations">Installation</a></li>
+                    <li><a href="#prestations">Entretien</a></li>
+                    <li><a href="#prestations">Dépannage</a></li>
+                    <li><a href="#tarifs">Devis gratuit</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <ul class="footer-links footer-contact">
+                    <li>📞 <a href="tel:0690383271">0690 38 32 71</a></li>
+                    <li>📧 <a href="mailto:freshclimp@gmail.com">freshclimp@gmail.com</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2025 FRESH CLIM PRO – Tous droits réservés</span>
+            <span><a href="#">Mentions légales</a> | <a href="#">Politique de confidentialité</a></span>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/590690383271?text=Bonjour%2C%20je%20souhaite%20un%20devis" target="_blank"
+        rel="noopener noreferrer" class="whatsapp-float" aria-label="Contactez-nous sur WhatsApp">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+    </a>
+
+    <script>
+        // Ice Particles Animation
+        function createParticles() {
+            const container = document.getElementById('ice-particles');
+            const particleCount = 50;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+
+                const size = Math.random() * 8 + 3;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.animationDuration = `${Math.random() * 10 + 8}s`;
+                particle.style.animationDelay = `${Math.random() * 10}s`;
+
+                container.appendChild(particle);
+            }
+        }
+
+        // Header Scroll Effect
+        function handleHeaderScroll() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        }
+
+        // Mobile Menu
+        function initMobileMenu() {
+            const menuBtn = document.getElementById('mobileMenuBtn');
+            const mobileNav = document.getElementById('mobileNav');
+            const closeBtn = document.getElementById('mobileNavClose');
+            const links = mobileNav.querySelectorAll('a');
+
+            menuBtn.addEventListener('click', () => {
+                mobileNav.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+
+            closeBtn.addEventListener('click', () => {
+                mobileNav.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileNav.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+        }
+
+        // Scroll Animations
+        function initScrollAnimations() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // Form Handling
+        function initForm() {
+            const form = document.getElementById('contactForm');
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                // Get form data
+                const formData = new FormData(form);
+                const data = Object.fromEntries(formData);
+
+                // Create WhatsApp message
+                const message = `Bonjour, je souhaite un devis.%0A%0A` +
+                    `Nom: ${data.name}%0A` +
+                    `Téléphone: ${data.phone}%0A` +
+                    `Email: ${data.email || 'Non renseigné'}%0A` +
+                    `Prestation: ${data.service}%0A` +
+                    `Commune: ${data.commune}%0A` +
+                    `Surface: ${data.surface || 'Non renseignée'} m²%0A` +
+                    `Message: ${data.message || 'Non renseigné'}`;
+
+                // Redirect to WhatsApp with form data
+                window.open(`https://wa.me/590690383271?text=${message}`, '_blank');
+
+                // Show success message
+                alert('Merci pour votre demande ! Vous allez être redirigé vers WhatsApp pour finaliser votre demande.');
+                form.reset();
+            });
+        }
+
+        // Initialize everything on DOM load
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            handleHeaderScroll();
+            initMobileMenu();
+            initScrollAnimations();
+            initForm();
+
+            window.addEventListener('scroll', handleHeaderScroll);
+        });
+    </script>
+</body>
+
+</html>

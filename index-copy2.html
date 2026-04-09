@@ -1107,109 +1107,6 @@
             resize: vertical;
         }
 
-        /* RGPD Consent */
-        .rgpd-consent {
-            background: rgba(0, 207, 255, 0.05);
-            border: 1px solid rgba(0, 207, 255, 0.2);
-            border-radius: 12px;
-            padding: 1rem 1.25rem;
-        }
-
-        .rgpd-label {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.75rem;
-            cursor: pointer;
-        }
-
-        .rgpd-label input[type="checkbox"] {
-            position: absolute;
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-
-        .rgpd-checkmark {
-            flex-shrink: 0;
-            width: 22px;
-            height: 22px;
-            margin-top: 2px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px solid rgba(0, 207, 255, 0.4);
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s;
-        }
-
-        .rgpd-checkmark::after {
-            content: '';
-            display: none;
-            width: 6px;
-            height: 11px;
-            border: 2px solid var(--navy-dark);
-            border-top: none;
-            border-left: none;
-            transform: rotate(45deg) translateY(-1px);
-        }
-
-        .rgpd-label input[type="checkbox"]:checked + .rgpd-checkmark {
-            background: var(--cyan);
-            border-color: var(--cyan);
-        }
-
-        .rgpd-label input[type="checkbox"]:checked + .rgpd-checkmark::after {
-            display: block;
-        }
-
-        .rgpd-label input[type="checkbox"]:focus + .rgpd-checkmark {
-            box-shadow: 0 0 0 3px rgba(0, 207, 255, 0.25);
-        }
-
-        .rgpd-text {
-            font-size: 0.88rem;
-            color: var(--text-muted);
-            line-height: 1.6;
-        }
-
-        .rgpd-text strong {
-            color: var(--text-light);
-        }
-
-        .rgpd-text a {
-            color: var(--cyan);
-            text-decoration: none;
-        }
-
-        .rgpd-text a:hover {
-            text-decoration: underline;
-        }
-
-        .rgpd-required {
-            color: #ff6b6b;
-            font-weight: 700;
-            margin-left: 2px;
-        }
-
-        .rgpd-info {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin-top: 0.75rem;
-            padding-top: 0.75rem;
-            border-top: 1px solid rgba(0, 207, 255, 0.1);
-            opacity: 0.8;
-        }
-
-        .rgpd-info a {
-            color: var(--cyan);
-            text-decoration: none;
-        }
-
-        .rgpd-info a:hover {
-            text-decoration: underline;
-        }
-
         .form-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -1815,7 +1712,7 @@
     <header class="header" id="header">
         <div class="header-inner">
             <div class="logo-container">
-                <img src="logo.png" alt="FRESH CLIM PRO Logo" class="logo-img">
+                <img src="images/logo.png" alt="FRESH CLIM PRO Logo" class="logo-img">
                 <div class="logo-text">
                     <span>
                         <span class="brand-white">FRESH</span>
@@ -2349,30 +2246,11 @@
                     </div>
                     <div class="form-group">
                         <label for="surface">Surface à climatiser (m²)</label>
-                        <input type="number" id="surface" name="surface" placeholder="Ex: 50">
+                        <input type="number" id="surface" name="surface" placeholder="Ex: 50 si vous connaisez la surface à climatiser">
                     </div>
                     <div class="form-group">
                         <label for="message">Message</label>
                         <textarea id="message" name="message" placeholder="Décrivez votre besoin..."></textarea>
-                    </div>
-
-                    <!-- RGPD Consent -->
-                    <div class="rgpd-consent">
-                        <label class="rgpd-label">
-                            <input type="checkbox" id="rgpdConsent" name="rgpdConsent" required>
-                            <span class="rgpd-checkmark"></span>
-                            <span class="rgpd-text">
-                                J'accepte que mes données personnelles soient utilisées par <strong>FRESH CLIM PRO</strong> dans le seul but de traiter ma demande de devis, conformément au
-                                <a href="mentions-legales.html" target="_blank" rel="noopener">RGPD</a>.
-                                Ces données ne seront ni vendues ni transmises à des tiers.
-                                <span class="rgpd-required">*</span>
-                            </span>
-                        </label>
-                        <p class="rgpd-info">
-                            <svg viewBox="0 0 24 24" style="width:14px;height:14px;fill:currentColor;vertical-align:middle;margin-right:4px;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-                            Vous pouvez exercer vos droits d'accès, de rectification ou de suppression en nous contactant au
-                            <a href="tel:0690383271">0690 38 32 71</a> ou par email.
-                        </p>
                     </div>
                     <button type="submit" class="btn btn-primary" style="width: 100%;">Envoyer ma demande →</button>
                 </form>
@@ -2418,7 +2296,7 @@
         <div class="footer-grid">
             <div class="footer-brand">
                 <div class="logo-container">
-                    <img src="logo.png" alt="FRESH CLIM PRO Logo" class="logo-img" style="width: 40px; height: 40px;">
+                    <img src="images/logo.png" alt="FRESH CLIM PRO Logo" class="logo-img" style="width: 40px; height: 40px;">
                     <div class="logo-text">
                         <span class="brand" style="font-size: 1.1rem;">freshclim pro</span>
                     </div>
@@ -2480,7 +2358,7 @@
         </div>
         <div class="footer-bottom">
             <span>© 2025 FRESH CLIM PRO – Tous droits réservés</span>
-            <span><a href="#">Mentions légales</a></span>
+            <span><a href="mentions-legales.html">Mentions légales</a></span>
         </div>
     </footer>
 
@@ -2574,18 +2452,6 @@
             form.addEventListener('submit', (e) => {
                 e.preventDefault();
 
-                // Vérification consentement RGPD
-                const rgpdConsent = document.getElementById('rgpdConsent');
-                if (!rgpdConsent.checked) {
-                    rgpdConsent.closest('.rgpd-consent').style.borderColor = '#ff6b6b';
-                    rgpdConsent.closest('.rgpd-consent').style.background = 'rgba(255,107,107,0.05)';
-                    rgpdConsent.focus();
-                    setTimeout(() => {
-                        rgpdConsent.closest('.rgpd-consent').style.borderColor = 'rgba(0, 207, 255, 0.2)';
-                        rgpdConsent.closest('.rgpd-consent').style.background = 'rgba(0, 207, 255, 0.05)';
-                    }, 2500);
-                    return;
-                }
                 // Get form data
                 const formData = new FormData(form);
                 const data = Object.fromEntries(formData);
@@ -2616,363 +2482,10 @@
             initMobileMenu();
             initScrollAnimations();
             initForm();
-            initCookieBanner();
 
             window.addEventListener('scroll', handleHeaderScroll);
         });
-
-        // ── Cookie Banner ──────────────────────────────────────────
-        function initCookieBanner() {
-            if (localStorage.getItem('cookieConsent')) return;
-            setTimeout(() => {
-                document.getElementById('cookieBanner').classList.add('visible');
-            }, 800);
-        }
-
-        function acceptAllCookies() {
-            localStorage.setItem('cookieConsent', 'all');
-            closeCookieBanner();
-        }
-
-        function acceptEssentialCookies() {
-            localStorage.setItem('cookieConsent', 'essential');
-            closeCookieBanner();
-        }
-
-        function openCookieSettings() {
-            document.getElementById('cookieSimple').style.display = 'none';
-            document.getElementById('cookieDetail').style.display = 'block';
-        }
-
-        function backToCookieSimple() {
-            document.getElementById('cookieDetail').style.display = 'none';
-            document.getElementById('cookieSimple').style.display = 'block';
-        }
-
-        function saveCustomCookies() {
-            const prefs = {
-                essential: true,
-                analytics: document.getElementById('cookieAnalytics').checked,
-                marketing: document.getElementById('cookieMarketing').checked,
-            };
-            localStorage.setItem('cookieConsent', JSON.stringify(prefs));
-            closeCookieBanner();
-        }
-
-        function closeCookieBanner() {
-            const banner = document.getElementById('cookieBanner');
-            banner.classList.remove('visible');
-            setTimeout(() => banner.style.display = 'none', 400);
-        }
     </script>
-
-    <!-- ══ COOKIE BANNER ══════════════════════════════════════════ -->
-    <style>
-        #cookieBanner {
-            position: fixed;
-            bottom: 1.5rem;
-            left: 50%;
-            transform: translateX(-50%) translateY(120px);
-            width: calc(100% - 3rem);
-            max-width: 680px;
-            background: rgba(6, 21, 41, 0.97);
-            border: 1px solid rgba(0, 207, 255, 0.3);
-            border-radius: 20px;
-            padding: 2rem;
-            z-index: 9999;
-            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0,207,255,0.1);
-            backdrop-filter: blur(16px);
-            opacity: 0;
-            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease;
-        }
-
-        #cookieBanner.visible {
-            transform: translateX(-50%) translateY(0);
-            opacity: 1;
-        }
-
-        .cookie-header {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 1rem;
-        }
-
-        .cookie-icon {
-            width: 42px; height: 42px;
-            background: linear-gradient(135deg, var(--cyan), var(--cyan-dark));
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            font-size: 1.2rem;
-        }
-
-        .cookie-header h3 {
-            font-family: 'Exo 2', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--text-light);
-        }
-
-        .cookie-header p {
-            font-size: 0.78rem;
-            color: var(--text-muted);
-            margin-top: 0.1rem;
-        }
-
-        .cookie-body p {
-            font-size: 0.88rem;
-            color: var(--text-muted);
-            line-height: 1.6;
-            margin-bottom: 1.25rem;
-        }
-
-        .cookie-body a {
-            color: var(--cyan);
-            text-decoration: none;
-        }
-
-        .cookie-body a:hover { text-decoration: underline; }
-
-        .cookie-buttons {
-            display: flex;
-            gap: 0.75rem;
-            flex-wrap: wrap;
-        }
-
-        .cookie-btn {
-            flex: 1;
-            min-width: 120px;
-            padding: 0.65rem 1rem;
-            border-radius: 10px;
-            font-family: 'Exo 2', sans-serif;
-            font-weight: 700;
-            font-size: 0.85rem;
-            cursor: pointer;
-            border: none;
-            transition: all 0.25s;
-            white-space: nowrap;
-        }
-
-        .cookie-btn-accept {
-            background: linear-gradient(135deg, var(--cyan), var(--cyan-dark));
-            color: var(--navy-dark);
-        }
-
-        .cookie-btn-accept:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,207,255,0.35);
-        }
-
-        .cookie-btn-essential {
-            background: transparent;
-            color: var(--text-light);
-            border: 1.5px solid rgba(0,207,255,0.35);
-        }
-
-        .cookie-btn-essential:hover {
-            border-color: var(--cyan);
-            background: rgba(0,207,255,0.08);
-        }
-
-        .cookie-btn-settings {
-            background: transparent;
-            color: var(--text-muted);
-            border: 1.5px solid rgba(255,255,255,0.1);
-            flex: 0 0 auto;
-        }
-
-        .cookie-btn-settings:hover {
-            color: var(--text-light);
-            border-color: rgba(255,255,255,0.25);
-        }
-
-        /* Detail panel */
-        #cookieDetail { display: none; }
-
-        .cookie-toggle-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0.85rem 0;
-            border-bottom: 1px solid rgba(0,207,255,0.08);
-        }
-
-        .cookie-toggle-row:last-of-type { border-bottom: none; }
-
-        .cookie-toggle-info strong {
-            font-size: 0.9rem;
-            color: var(--text-light);
-            display: block;
-            margin-bottom: 0.2rem;
-        }
-
-        .cookie-toggle-info span {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        .cookie-toggle {
-            position: relative;
-            width: 44px; height: 24px;
-            flex-shrink: 0;
-            margin-left: 1rem;
-        }
-
-        .cookie-toggle input { opacity: 0; width: 0; height: 0; }
-
-        .cookie-toggle-slider {
-            position: absolute;
-            inset: 0;
-            background: rgba(255,255,255,0.15);
-            border-radius: 24px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .cookie-toggle-slider::before {
-            content: '';
-            position: absolute;
-            width: 18px; height: 18px;
-            left: 3px; top: 3px;
-            background: white;
-            border-radius: 50%;
-            transition: transform 0.3s;
-        }
-
-        .cookie-toggle input:checked + .cookie-toggle-slider {
-            background: var(--cyan);
-        }
-
-        .cookie-toggle input:checked + .cookie-toggle-slider::before {
-            transform: translateX(20px);
-        }
-
-        .cookie-toggle input:disabled + .cookie-toggle-slider {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
-
-        .cookie-back-btn {
-            background: none;
-            border: none;
-            color: var(--text-muted);
-            font-size: 0.82rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-            padding: 0;
-            margin-bottom: 1rem;
-            transition: color 0.2s;
-        }
-
-        .cookie-back-btn:hover { color: var(--cyan); }
-
-        @media (max-width: 480px) {
-            #cookieBanner {
-                bottom: 0;
-                left: 0;
-                right: 0;
-                width: 100%;
-                transform: translateY(120px);
-                border-radius: 20px 20px 0 0;
-                max-width: 100%;
-            }
-
-            #cookieBanner.visible {
-                transform: translateY(0);
-            }
-
-            .cookie-buttons {
-                flex-direction: column;
-            }
-
-            .cookie-btn {
-                width: 100%;
-                flex: unset;
-            }
-        }
-    </style>
-
-    <div id="cookieBanner" role="dialog" aria-label="Gestion des cookies">
-
-        <!-- Vue simple -->
-        <div id="cookieSimple">
-            <div class="cookie-header">
-                <!-- <div class="cookie-icon">🍪</div> -->
-                <div>
-                    <h3>Gestion des cookies</h3>
-                    <p>Votre vie privée nous importe</p>
-                </div>
-            </div>
-            <div class="cookie-body">
-                <p>
-                    Nous utilisons des cookies pour assurer le bon fonctionnement du site et améliorer votre expérience.
-                    Vous pouvez accepter tous les cookies, n'accepter que les essentiels, ou personnaliser vos choix.
-                    <br><a href="mentions-legales.html">En savoir plus dans nos mentions légales →</a>
-                </p>
-                <div class="cookie-buttons">
-                    <button class="cookie-btn cookie-btn-accept" onclick="acceptAllCookies()">✓ Tout accepter</button>
-                    <button class="cookie-btn cookie-btn-essential" onclick="acceptEssentialCookies()">Essentiels uniquement</button>
-                    <button class="cookie-btn cookie-btn-settings" onclick="openCookieSettings()">⚙ Paramétrer</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Vue détaillée -->
-        <div id="cookieDetail">
-            <button class="cookie-back-btn" onclick="backToCookieSimple()">
-                ← Retour
-            </button>
-            <div class="cookie-header">
-                <div class="cookie-icon">⚙️</div>
-                <div>
-                    <h3>Paramétrer mes cookies</h3>
-                    <p>Choisissez ce que vous autorisez</p>
-                </div>
-            </div>
-            <div class="cookie-body">
-                <div class="cookie-toggle-row">
-                    <div class="cookie-toggle-info">
-                        <strong>🔒 Cookies essentiels</strong>
-                        <span>Nécessaires au fonctionnement du site. Ne peuvent pas être désactivés.</span>
-                    </div>
-                    <label class="cookie-toggle">
-                        <input type="checkbox" checked disabled>
-                        <span class="cookie-toggle-slider"></span>
-                    </label>
-                </div>
-                <div class="cookie-toggle-row">
-                    <div class="cookie-toggle-info">
-                        <strong>📊 Cookies analytiques</strong>
-                        <span>Nous aident à comprendre comment vous utilisez le site (ex: Google Analytics).</span>
-                    </div>
-                    <label class="cookie-toggle">
-                        <input type="checkbox" id="cookieAnalytics">
-                        <span class="cookie-toggle-slider"></span>
-                    </label>
-                </div>
-                <div class="cookie-toggle-row">
-                    <div class="cookie-toggle-info">
-                        <strong>📣 Cookies marketing</strong>
-                        <span>Permettent de vous proposer des publicités personnalisées.</span>
-                    </div>
-                    <label class="cookie-toggle">
-                        <input type="checkbox" id="cookieMarketing">
-                        <span class="cookie-toggle-slider"></span>
-                    </label>
-                </div>
-                <div class="cookie-buttons" style="margin-top: 1.25rem;">
-                    <button class="cookie-btn cookie-btn-accept" onclick="saveCustomCookies()">✓ Enregistrer mes choix</button>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
 </body>
 
 </html>

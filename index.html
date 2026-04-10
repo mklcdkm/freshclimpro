@@ -42,7 +42,7 @@
             --gold: #ffd700;
             --orange-accent: #ff6b35;
             --text-light: #e8f4ff;
-            --text-muted: #8fb4d4;
+            --text-muted: #a8c8e8;
             --card-bg: rgba(15, 45, 84, 0.8);
             --card-border: rgba(0, 207, 255, 0.2);
             --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
@@ -258,7 +258,9 @@
             align-items: center;
             justify-content: center;
             padding: 8rem 1.5rem 4rem;
-            background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 50%, var(--navy-light) 100%);
+            background: 
+                linear-gradient(135deg, rgba(6, 21, 41, 0.85) 0%, rgba(10, 31, 60, 0.85) 50%, rgba(15, 45, 84, 0.85) 100%),
+                url('images/salon-clim.jpg') center/cover no-repeat;
             overflow: hidden;
         }
 
@@ -1089,8 +1091,7 @@
         }
 
         .form-group select option {
-            /* background: var(--navy-dark); */
-            background: linear-gradient(180deg, var(--navy-dark) 0%, var(--navy) 100%);
+            background: var(--navy-dark);
             color: var(--text-light);
         }
 
@@ -1783,21 +1784,78 @@
             transform: translateX(0);
         }
 
+        /* Reduced Motion - RGAA 13.2 / WCAG 2.3.3 */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+
+            .particle {
+                display: none;
+            }
+
+            #ice-particles {
+                display: none;
+            }
+        }
+
         .coordonee {
             font-weight: 600;
+        }
+
+        /* Skip Link - RGAA 12.8 */
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--cyan);
+            color: var(--navy-dark);
+            padding: 1rem 2rem;
+            border-radius: 0 0 10px 10px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            z-index: 10000;
+            transition: top 0.3s;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* Screen Reader Only - Visually hidden but accessible */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
         }
     </style>
 </head>
 
 <body>
+    <!-- Skip Link - Lien d'évitement (RGAA 12.8) -->
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    
     <!-- Ice Particles Background -->
-    <div id="ice-particles"></div>
+    <div id="ice-particles" aria-hidden="true"></div>
 
     <!-- Header -->
-    <header class="header" id="header">
+    <header class="header" id="header" role="banner">
         <div class="header-inner">
             <div class="logo-container">
-                <img src="logo.png" alt="FRESH CLIM PRO Logo" class="logo-img">
+                <img src="images/logo.png" alt="FRESH CLIM PRO Logo" class="logo-img">
                 <div class="logo-text">
                     <span>
                         <span class="brand-white">FRESH</span>
@@ -1808,7 +1866,7 @@
 
                 </div>
             </div>
-            <nav>
+            <nav aria-label="Navigation principale">
                 <ul class="nav-links">
                     <li><a href="#accueil">Accueil</a></li>
                     <li><a href="#prestations">Prestations</a></li>
@@ -1819,35 +1877,41 @@
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
-            <a href="tel:0690383271" class="header-cta">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <a href="tel:0690383271" class="header-cta" aria-label="Appeler le 0690 38 32 71">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                     <path
                         d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
                 </svg>
                 0690 38 32 71
             </a>
-            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">☰</button>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileNav">
+                <span aria-hidden="true">☰</span>
+            </button>
         </div>
     </header>
 
     <!-- Mobile Navigation -->
-    <div class="mobile-nav" id="mobileNav">
-        <button class="mobile-nav-close" id="mobileNavClose">✕</button>
-        <a href="#accueil" class="mobile-nav-link">Accueil</a>
-        <a href="#prestations" class="mobile-nav-link">Prestations</a>
-        <a href="#apropos" class="mobile-nav-link">A propos</a>
-        <a href="#tarifs" class="mobile-nav-link">Tarifs</a>
-        <a href="#realisations" class="mobile-nav-link">Réalisations</a>
-        <a href="#avis" class="mobile-nav-link">Avis</a>
-        <a href="#contact" class="mobile-nav-link">Contact</a>
-        <a href="tel:0690383271" class="btn btn-green">
-            <svg class="icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-            </svg>
-            0690 38 32 71
-        </a>
+    <div class="mobile-nav" id="mobileNav" role="dialog" aria-label="Menu mobile" aria-hidden="true">
+        <button class="mobile-nav-close" id="mobileNavClose" aria-label="Fermer le menu">✕</button>
+        <nav aria-label="Navigation mobile">
+            <a href="#accueil" class="mobile-nav-link">Accueil</a>
+            <a href="#prestations" class="mobile-nav-link">Prestations</a>
+            <a href="#apropos" class="mobile-nav-link">A propos</a>
+            <a href="#tarifs" class="mobile-nav-link">Tarifs</a>
+            <a href="#realisations" class="mobile-nav-link">Réalisations</a>
+            <a href="#avis" class="mobile-nav-link">Avis</a>
+            <a href="#contact" class="mobile-nav-link">Contact</a>
+            <a href="tel:0690383271" class="btn btn-green" aria-label="Appeler le 0690 38 32 71">
+                <svg class="icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                </svg>
+                0690 38 32 71
+            </a>
+        </nav>
     </div>
 
+    <!-- Main Content -->
+    <main id="main-content">
     <!-- Hero Section -->
     <section class="hero" id="accueil">
         <!-- Tropical Background Graphic -->
@@ -2094,12 +2158,13 @@
                         </svg>
                     </div> -->
                     <h3>Entretien / Dépannage</h3>
-                    <div class="price">Sur devis</div>
+                    <div class="price">À partir de 54.25 €</div>
                     <ul class="pricing-features">
-                        <li>Nettoyage filtres</li>
-                        <li>Vérification circuit</li>
+                        <li>Nettoyage turbine filtres</li>
+                        <li>Vérification gaz</li>
                         <li>Recharge fluide</li>
-                        <li>Rapport d'intervention</li>
+                        <li>Traitement anti acarien</li>
+                        <li>Traitement anti bactérien</li>
                     </ul>
                     <a href="#contact" class="btn btn-secondary">Nous contacter</a>
                 </div>
@@ -2144,7 +2209,7 @@
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
                         </svg>
-                        <span>Image réalisation 1</span>
+                        <span><img src="images/air-conditioning-decoration-interior.jpg" alt="salon" class=""></span>
                     </div>
                     <div class="realisation-overlay">
                         <h4>Installation résidentielle</h4>
@@ -2156,7 +2221,7 @@
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
                         </svg>
-                        <span>Image réalisation 2</span>
+                        <span><img src="images/climatisation-multi-split.jpg" alt="salon" class=""></span>
                     </div>
                     <div class="realisation-overlay">
                         <h4>Installation commerciale</h4>
@@ -2168,7 +2233,7 @@
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
                         </svg>
-                        <span>Image réalisation 3</span>
+                        <span><img src="images/interieur-salon-moderne.jpg" alt="salon" class=""></span>
                     </div>
                     <div class="realisation-overlay">
                         <h4>Rénovation complète</h4>
@@ -2297,36 +2362,44 @@
                 <p>Remplissez le formulaire ci-dessous et recevez votre devis sous 24h</p>
             </div>
             <div class="contact-grid">
-                <form class="contact-form fade-in-left" id="contactForm">
+                <form class="contact-form fade-in-left" id="contactForm" novalidate>
+                    <p id="required-fields-note" style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">
+                        <span aria-hidden="true">*</span> Les champs obligatoires sont indiqués avec une étoile
+                    </p>
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="name">Nom complet *</label>
-                            <input type="text" id="name" name="name" required placeholder="Votre nom et prénom">
+                            <label for="name">Nom complet <span aria-hidden="true">*</span></label>
+                            <input type="text" id="name" name="name" required aria-required="true" placeholder="Votre nom et prénom" aria-describedby="name-error">
+                            <span id="name-error" class="form-error" role="alert" style="display: none; color: #ff6b6b; font-size: 0.85rem; margin-top: 0.25rem;"></span>
                         </div>
                         <div class="form-group">
-                            <label for="phone">Téléphone *</label>
-                            <input type="tel" id="phone" name="phone" required placeholder="0690 XX XX XX">
+                            <label for="phone">Téléphone <span aria-hidden="true">*</span></label>
+                            <input type="tel" id="phone" name="phone" required aria-required="true" placeholder="0690 XX XX XX" aria-describedby="phone-error">
+                            <span id="phone-error" class="form-error" role="alert" style="display: none; color: #ff6b6b; font-size: 0.85rem; margin-top: 0.25rem;"></span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email" placeholder="votre@email.com">
+                        <input type="email" id="email" name="email" placeholder="votre@email.com" aria-describedby="email-error">
+                        <span id="email-error" class="form-error" role="alert" style="display: none; color: #ff6b6b; font-size: 0.85rem; margin-top: 0.25rem;"></span>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="service">Type de prestation *</label>
-                            <select id="service" name="service" required>
+                            <label for="service">Type de prestation <span aria-hidden="true">*</span></label>
+                            <select id="service" name="service" required aria-required="true" aria-describedby="service-error">
                                 <option value="">Sélectionnez...</option>
                                 <option value="installation">Nouvelle Installation</option>
-                                <option value="entretien">Remplacement</option>
+                                <option value="remplacement">Remplacement</option>
                                 <option value="entretien">Entretien</option>
                                 <option value="depannage">Dépannage</option>
                                 <option value="autre">Autre</option>
                             </select>
+                            <span id="service-error" class="form-error" role="alert" style="display: none; color: #ff6b6b; font-size: 0.85rem; margin-top: 0.25rem;"></span>
                         </div>
                         <div class="form-group">
-                            <label for="commune">Commune en Guadeloupe *</label>
-                            <input type="text" id="commune" name="commune" required placeholder="Votre commune">
+                            <label for="commune">Commune en Guadeloupe <span aria-hidden="true">*</span></label>
+                            <input type="text" id="commune" name="commune" required aria-required="true" placeholder="Votre commune" aria-describedby="commune-error">
+                            <span id="commune-error" class="form-error" role="alert" style="display: none; color: #ff6b6b; font-size: 0.85rem; margin-top: 0.25rem;"></span>
                         </div>
                     </div>
                     <div class="form-group">
@@ -2335,21 +2408,24 @@
                     </div>
                     <div class="form-group">
                         <label for="message">Message</label>
-                        <textarea id="message" name="message" placeholder="Décrivez votre besoin..."></textarea>
+                        <textarea id="message" name="message" placeholder="Décrivez votre besoin..." aria-describedby="message-error"></textarea>
+                        <span id="message-error" class="form-error" role="alert" style="display: none; color: #ff6b6b; font-size: 0.85rem; margin-top: 0.25rem;"></span>
                     </div>
 
                     <!-- RGPD Consent -->
-                    <div class="rgpd-consent">
+                    <div class="rgpd-consent" id="rgpd-consent-group">
                         <label class="rgpd-label">
-                            <input type="checkbox" id="rgpdConsent" name="rgpdConsent" required>
+                            <input type="checkbox" id="rgpdConsent" name="rgpdConsent" required aria-required="true" aria-describedby="rgpd-error">
                             <span class="rgpd-checkmark"></span>
                             <span class="rgpd-text">
                                 J'accepte que mes données personnelles soient utilisées par <strong>FRESH CLIM PRO</strong> dans le seul but de traiter ma demande de devis, conformément au
                                 <a href="mentions-legales.html" target="_blank" rel="noopener">RGPD</a>.
                                 Ces données ne seront ni vendues ni transmises à des tiers.
-                                <span class="rgpd-required">*</span>
+                                <span class="rgpd-required" aria-hidden="true">*</span>
+                                <span class="sr-only">champ obligatoire</span>
                             </span>
-                        </label>   
+                        </label>
+                        <span id="rgpd-error" class="form-error" role="alert" style="display: none; color: #ff6b6b; font-size: 0.85rem; margin-top: 0.25rem;"></span>
                     </div>
                     <br>
                     <button type="submit" class="btn btn-primary" style="width: 100%;">Envoyer ma demande →</button>
@@ -2391,12 +2467,15 @@
         </div>
     </section>
 
+    </main>
+    <!-- End Main Content -->
+
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="footer-grid">
             <div class="footer-brand">
                 <div class="logo-container">
-                    <img src="logo.png" alt="FRESH CLIM PRO Logo" class="logo-img" style="width: 40px; height: 40px;">
+                    <img src="images/logo.png" alt="FRESH CLIM PRO Logo" class="logo-img" style="width: 40px; height: 40px;">
                     <div class="logo-text">
                         <span class="brand" style="font-size: 1.1rem;">freshclim pro</span>
                     </div>
@@ -2435,7 +2514,7 @@
                     <li><a href="#prestations">Installation</a></li>
                     <li><a href="#prestations">Entretien</a></li>
                     <li><a href="#prestations">Dépannage</a></li>
-                    <li><a href="#tarifs">Devis gratuit</a></li>
+                    <!-- <li><a href="#tarifs">Devis gratuit</a></li> -->
                 </ul>
             </div>
             <div>
@@ -2458,7 +2537,7 @@
         </div>
         <div class="footer-bottom">
             <span>© 2025 FRESH CLIM PRO – Tous droits réservés</span>
-            <span><a href="#">Mentions légales</a></span>
+            <span><a href="mentions-legales.html">Mentions légales</a></span>
         </div>
     </footer>
 
@@ -2511,19 +2590,37 @@
 
             menuBtn.addEventListener('click', () => {
                 mobileNav.classList.add('active');
+                mobileNav.setAttribute('aria-hidden', 'false');
+                menuBtn.setAttribute('aria-expanded', 'true');
                 document.body.style.overflow = 'hidden';
+                // Focus first link
+                setTimeout(() => links[0]?.focus(), 100);
             });
 
             closeBtn.addEventListener('click', () => {
                 mobileNav.classList.remove('active');
+                mobileNav.setAttribute('aria-hidden', 'true');
+                menuBtn.setAttribute('aria-expanded', 'false');
                 document.body.style.overflow = '';
+                // Return focus to menu button
+                menuBtn.focus();
             });
 
             links.forEach(link => {
                 link.addEventListener('click', () => {
                     mobileNav.classList.remove('active');
+                    mobileNav.setAttribute('aria-hidden', 'true');
+                    menuBtn.setAttribute('aria-expanded', 'false');
                     document.body.style.overflow = '';
+                    menuBtn.focus();
                 });
+            });
+
+            // Close on Escape key
+            mobileNav.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    closeBtn.click();
+                }
             });
         }
 
@@ -2549,21 +2646,51 @@
         function initForm() {
             const form = document.getElementById('contactForm');
 
+            // Clear errors on input
+            form.querySelectorAll('input, select, textarea').forEach(input => {
+                input.addEventListener('input', () => clearFieldError(input));
+                input.addEventListener('blur', () => clearFieldError(input));
+            });
+
             form.addEventListener('submit', (e) => {
                 e.preventDefault();
+                clearAllErrors();
+
+                let hasErrors = false;
+                let firstErrorField = null;
+
+                // Validate required fields
+                const requiredFields = form.querySelectorAll('[required]');
+                for (const field of requiredFields) {
+                    if (!field.value.trim() || (field.type === 'checkbox' && !field.checked)) {
+                        const fieldName = field.labels?.[0]?.textContent?.replace(/\*/g, '').trim() || field.name;
+                        showFieldError(field, `${fieldName} est obligatoire`);
+                        if (!firstErrorField) firstErrorField = field;
+                        hasErrors = true;
+                    }
+                }
+
+                // Validate email format if provided
+                const emailField = form.querySelector('#email');
+                if (emailField.value && !isValidEmail(emailField.value)) {
+                    showFieldError(emailField, 'Veuillez entrer un email valide');
+                    if (!firstErrorField) firstErrorField = emailField;
+                    hasErrors = true;
+                }
 
                 // Vérification consentement RGPD
                 const rgpdConsent = document.getElementById('rgpdConsent');
                 if (!rgpdConsent.checked) {
-                    rgpdConsent.closest('.rgpd-consent').style.borderColor = '#ff6b6b';
-                    rgpdConsent.closest('.rgpd-consent').style.background = 'rgba(255,107,107,0.05)';
-                    rgpdConsent.focus();
-                    setTimeout(() => {
-                        rgpdConsent.closest('.rgpd-consent').style.borderColor = 'rgba(0, 207, 255, 0.2)';
-                        rgpdConsent.closest('.rgpd-consent').style.background = 'rgba(0, 207, 255, 0.05)';
-                    }, 2500);
+                    showFieldError(rgpdConsent, 'Vous devez accepter pour continuer');
+                    if (!firstErrorField) firstErrorField = rgpdConsent;
+                    hasErrors = true;
+                }
+
+                if (hasErrors) {
+                    firstErrorField.focus();
                     return;
                 }
+
                 // Get form data
                 const formData = new FormData(form);
                 const data = Object.fromEntries(formData);
@@ -2587,6 +2714,43 @@
             });
         }
 
+        function isValidEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+
+        function showFieldError(field, message) {
+            const errorElement = field.getAttribute('aria-describedby');
+            if (errorElement) {
+                const errorEl = document.getElementById(errorElement);
+                if (errorEl) {
+                    errorEl.textContent = message;
+                    errorEl.style.display = 'block';
+                }
+            }
+            field.setAttribute('aria-invalid', 'true');
+        }
+
+        function clearFieldError(field) {
+            field.removeAttribute('aria-invalid');
+            const errorElement = field.getAttribute('aria-describedby');
+            if (errorElement) {
+                const errorEl = document.getElementById(errorElement);
+                if (errorEl) {
+                    errorEl.textContent = '';
+                    errorEl.style.display = 'none';
+                }
+            }
+        }
+
+        function clearAllErrors() {
+            const form = document.getElementById('contactForm');
+            form.querySelectorAll('[aria-invalid="true"]').forEach(field => clearFieldError(field));
+            document.querySelectorAll('.form-error[role="alert"]').forEach(error => {
+                error.textContent = '';
+                error.style.display = 'none';
+            });
+        }
+
         // Initialize everything on DOM load
         document.addEventListener('DOMContentLoaded', () => {
             createParticles();
@@ -2603,7 +2767,11 @@
         function initCookieBanner() {
             if (localStorage.getItem('cookieConsent')) return;
             setTimeout(() => {
-                document.getElementById('cookieBanner').classList.add('visible');
+                const banner = document.getElementById('cookieBanner');
+                banner.classList.add('visible');
+                banner.setAttribute('aria-hidden', 'false');
+                // Focus first button
+                banner.querySelector('button')?.focus();
             }, 800);
         }
 
@@ -2614,6 +2782,11 @@
 
         function acceptEssentialCookies() {
             localStorage.setItem('cookieConsent', 'essential');
+            closeCookieBanner();
+        }
+
+        function refuseAllCookies() {
+            localStorage.setItem('cookieConsent', 'refused');
             closeCookieBanner();
         }
 
@@ -2640,6 +2813,7 @@
         function closeCookieBanner() {
             const banner = document.getElementById('cookieBanner');
             banner.classList.remove('visible');
+            banner.setAttribute('aria-hidden', 'true');
             setTimeout(() => banner.style.display = 'none', 400);
         }
     </script>
@@ -2767,6 +2941,38 @@
             border-color: rgba(255,255,255,0.25);
         }
 
+        .cookie-btn-refuse {
+            background: transparent;
+            color: var(--text-muted);
+            border: 1.5px solid rgba(255,255,255,0.15);
+            flex: 0 0 auto;
+        }
+
+        .cookie-btn-refuse:hover {
+            color: var(--text-light);
+            border-color: rgba(255,255,255,0.3);
+            background: rgba(255,255,255,0.05);
+        }
+
+        .cookie-btn-close-banner {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.85rem;
+            cursor: pointer;
+            padding: 0.25rem 0.5rem;
+            transition: color 0.2s;
+            z-index: 1;
+        }
+
+        .cookie-btn-close-banner:hover {
+            color: var(--text-light);
+        }
+
         /* Detail panel */
         #cookieDetail { display: none; }
 
@@ -2875,27 +3081,28 @@
         }
     </style>
 
-    <div id="cookieBanner" role="dialog" aria-label="Gestion des cookies">
+    <div id="cookieBanner" role="dialog" aria-label="Gestion des cookies" aria-modal="true" aria-hidden="true">
+
+        <button class="cookie-btn-close-banner" onclick="refuseAllCookies()" aria-label="Continuer sans accepter les cookies">Continuer sans accepter ✕</button>
 
         <!-- Vue simple -->
         <div id="cookieSimple">
             <div class="cookie-header">
-                <!-- <div class="cookie-icon">🍪</div> -->
                 <div>
                     <h3>Gestion des cookies</h3>
                     <p>Votre vie privée nous importe</p>
                 </div>
             </div>
             <div class="cookie-body">
-                <p>
+                <p id="cookie-description">
                     Nous utilisons des cookies pour assurer le bon fonctionnement du site et améliorer votre expérience.
                     Vous pouvez accepter tous les cookies, n'accepter que les essentiels, ou personnaliser vos choix.
-                    <br><a href="mentions-legales.html">En savoir plus dans nos mentions légales →</a>
+                    <br><a href="mentions-legales.html" target="_blank" rel="noopener">En savoir plus dans nos mentions légales →</a>
                 </p>
-                <div class="cookie-buttons">
-                    <button class="cookie-btn cookie-btn-accept" onclick="acceptAllCookies()">✓ Tout accepter</button>
-                    <button class="cookie-btn cookie-btn-essential" onclick="acceptEssentialCookies()">Essentiels uniquement</button>
-                    <button class="cookie-btn cookie-btn-settings" onclick="openCookieSettings()">⚙ Paramétrer</button>
+                <div class="cookie-buttons" role="group" aria-describedby="cookie-description">
+                    <button class="cookie-btn cookie-btn-accept" onclick="acceptAllCookies()" aria-label="Tout accepter">✓ Tout accepter</button>
+                    <button class="cookie-btn cookie-btn-essential" onclick="acceptEssentialCookies()" aria-label="N'accepter que les cookies essentiels">Essentiels uniquement</button>
+                    <button class="cookie-btn cookie-btn-settings" onclick="openCookieSettings()" aria-label="Paramétrer les cookies">⚙ Paramétrer</button>
                 </div>
             </div>
         </div>

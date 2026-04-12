@@ -299,13 +299,20 @@
             max-width: 900px;
             text-align: center;
         }
-
+        .hero-content .slogan{
+            background-clip: text;
+            color: transparent;
+            background-image: linear-gradient(135deg,#0af,#75dbf0);
+        }
         .hero-badge {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background: linear-gradient(135deg, var(--cyan), var(--green-accent));
-            color: var(--navy-dark);
+            /* background: linear-gradient(135deg, var(--cyan), var(--green-accent)); */
+            border-color: #00aaff4d;
+            background-color: #00aaff1a;
+            /* color: var(--navy-dark); */
+            color: var(--cyan);
             padding: 0.5rem 1.5rem;
             border-radius: 25px;
             font-weight: 700;
@@ -767,7 +774,7 @@
         }
 
         .pricing-card .price {
-            font-size: 2.2rem;
+            font-size: 2.1rem;
             font-weight: 900;
             color: var(--cyan);
             margin: 1rem 0;
@@ -1915,31 +1922,31 @@
     <!-- Hero Section -->
     <section class="hero" id="accueil">
         <!-- Tropical Background Graphic -->
-        <div class="hero-bg-graphic">
+        <!-- <div class="hero-bg-graphic">
             <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-                <!-- Palm tree silhouettes -->
+                <!-- Palm tree silhouettes 
                 <path
                     d="M100 900 L120 600 Q140 400 200 300 Q160 350 140 400 Q130 350 150 280 Q110 320 100 400 Q80 320 60 280 Q90 350 100 400 Q80 350 40 300 Q100 400 120 600 Z"
                     fill="currentColor" opacity="0.5" />
                 <path
                     d="M1300 900 L1280 550 Q1260 380 1200 280 Q1240 330 1260 380 Q1270 330 1250 260 Q1290 300 1300 380 Q1320 300 1340 260 Q1310 330 1300 380 Q1320 330 1360 280 Q1300 380 1280 550 Z"
                     fill="currentColor" opacity="0.5" />
-                <!-- Mountains -->
+                <!-- Mountains 
                 <path
                     d="M0 700 Q200 500 400 600 Q600 450 800 550 Q1000 400 1200 500 Q1350 450 1440 550 L1440 900 L0 900 Z"
                     fill="currentColor" opacity="0.3" />
-                <!-- Ocean waves -->
+                <!-- Ocean waves 
                 <path
                     d="M0 750 Q180 720 360 740 Q540 760 720 730 Q900 700 1080 740 Q1260 780 1440 750 L1440 900 L0 900 Z"
                     fill="currentColor" opacity="0.2" />
             </svg>
-        </div>
+        </div> -->
 
         <div class="hero-content">
             <span class="hero-badge">
-                <svg class="icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <!-- <svg class="icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12 2C10.9 2 10 2.9 10 4C10 4.7 10.3 5.4 10.8 5.8C9.2 6.3 8 7.8 8 9.5V16C8 18.2 9.8 20 12 20C14.2 20 16 18.2 16 16V9.5C16 7.8 14.8 6.3 13.2 5.8C13.7 5.4 14 4.7 14 4C14 2.9 13.1 2 12 2ZM12 3C12.6 3 13 3.4 13 4C13 4.6 12.6 5 12 5C11.4 5 11 4.6 11 4C11 3.4 11.4 3 12 3ZM12 7C12.6 7 13 7.4 13 8C13 8.6 12.6 9 12 9C11.4 9 11 8.6 11 8C11 7.4 11.4 7 12 7ZM10 10C10 9.4 10.4 9 11 9H13C13.6 9 14 9.4 14 10V16C14 17.1 13.1 18 12 18C10.9 18 10 17.1 10 16V10Z"/>
-                </svg>
+                </svg> -->
                 Expert Climatisation Guadeloupe
             </span>
             <h1>
@@ -1948,7 +1955,11 @@
                         <path d="M12 23C16.5 23 20 19.5 20 15C20 10 17 7 15 5C14.8 4.8 14.5 5 14.5 5.2C14.2 6.5 13 8 12 8C11.5 8 11 7.5 11 6.5C11 5 12 3 12 3C12 3 7 6 7 12C7 12.5 7 13 7.1 13.5C5.5 12.5 4.5 11 4.5 11C4.5 11 3 13.5 3 15.5C3 19 6 23 12 23ZM12 21C7.6 21 5 18 5 15.5C5 14.5 5.5 13.5 6 13C6 13 7 14.5 8.5 15C8.2 14.2 8 13.3 8 12.5C8 9.5 10.5 6.5 11.5 5.5C11.8 6.5 12.5 7 13 7C13.5 7 14 6.5 14.2 5.8C15.5 7.2 18 10 18 15C18 18.3 15.3 21 12 21Z"/>
                     </svg>
                 </span>
-                STOP À LA CHALEUR ÉTOUFFANTE !
+                <span>Votre confort</span>
+                <br>
+                <span class ="slogan">thermique,</span>
+                <br>
+                <span>notre expertise</span> 
                 <span class="fire-icon">
                     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12 23C16.5 23 20 19.5 20 15C20 10 17 7 15 5C14.8 4.8 14.5 5 14.5 5.2C14.2 6.5 13 8 12 8C11.5 8 11 7.5 11 6.5C11 5 12 3 12 3C12 3 7 6 7 12C7 12.5 7 13 7.1 13.5C5.5 12.5 4.5 11 4.5 11C4.5 11 3 13.5 3 15.5C3 19 6 23 12 23ZM12 21C7.6 21 5 18 5 15.5C5 14.5 5.5 13.5 6 13C6 13 7 14.5 8.5 15C8.2 14.2 8 13.3 8 12.5C8 9.5 10.5 6.5 11.5 5.5C11.8 6.5 12.5 7 13 7C13.5 7 14 6.5 14.2 5.8C15.5 7.2 18 10 18 15C18 18.3 15.3 21 12 21Z"/>
@@ -1982,11 +1993,11 @@
 
             <div class="hero-buttons">
                 <a href="#contact" class="btn btn-primary">Demander un devis gratuit →</a>
-                <a href="tel:0690383271" class="btn btn-secondary">
-                    <svg class="icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <a href="#prestations" class="btn btn-secondary">
+                    <!-- <svg class="icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-                    </svg>
-                    Nous appeler : 0690 38 32 71
+                    </svg> -->
+                    Découvrir nos prestations
                 </a>
             </div>
         </div>
@@ -2157,7 +2168,7 @@
                             <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V6h16v12zM6 10h2v2H6zm0 4h2v2H6zm4-4h2v2h-2zm0 4h2v2h-2zm4-4h2v2h-2zm0 4h2v2h-2z"/>
                         </svg>
                     </div> -->
-                    <h3>Entretien / Dépannage</h3>
+                    <h3>Entretien</h3>
                     <div class="price">À partir de 54.25 €</div>
                     <ul class="pricing-features">
                         <li>Nettoyage turbine filtres</li>
@@ -2175,13 +2186,12 @@
                             <path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/>
                         </svg>
                     </div> -->
-                    <h3>Multi-Split / Tertiaire</h3>
+                    <h3>Dépanage</h3>
                     <div class="price">Devis personnalisé</div>
                     <ul class="pricing-features">
-                        <li>Audit sur place</li>
-                        <li>Installation multi-pièces</li>
-                        <li>Bureaux et commerces</li>
-                        <li>Solution sur mesure</li>
+                        <li>Diagnostique</li>
+                        <li>Changement de pièces</li>
+                        <li>Réparation </li>
                     </ul>
                     <a href="#contact" class="btn btn-secondary">Devis gratuit</a>
                 </div>
@@ -2209,7 +2219,7 @@
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
                         </svg>
-                        <span><img src="images/air-conditioning-decoration-interior.jpg" alt="salon" class=""></span>
+                        <span><img src="images/installation.jpg" alt="image installation" class=""></span>
                     </div>
                     <div class="realisation-overlay">
                         <h4>Installation résidentielle</h4>
@@ -2221,11 +2231,11 @@
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
                         </svg>
-                        <span><img src="images/climatisation-multi-split.jpg" alt="salon" class=""></span>
+                        <span><img src="images/avant_apres.jpg" alt="salon" class=""></span>
                     </div>
                     <div class="realisation-overlay">
-                        <h4>Installation commerciale</h4>
-                        <p>Multi-split – Pointe-à-Pitre</p>
+                        <h4>Remplacement avant/après </h4>
+                        <p>Multi-split – Sainte-Anne</p>
                     </div>
                 </div>
                 <div class="realisation-card fade-in">
@@ -2233,11 +2243,23 @@
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
                         </svg>
-                        <span><img src="images/interieur-salon-moderne.jpg" alt="salon" class=""></span>
+                        <span><img src="images/westpoint-plusieur.jpg" alt="salon" class=""></span>
                     </div>
                     <div class="realisation-overlay">
                         <h4>Rénovation complète</h4>
                         <p>Gainable – Basse-Terre</p>
+                    </div>
+                </div>
+                 <div class="realisation-card fade-in">
+                    <div class="realisation-placeholder">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+                        </svg>
+                        <span><img src="images/westpoint2.jpg" alt="salon" class=""></span>
+                    </div>
+                    <div class="realisation-overlay">
+                        <h4>Rénovation complète</h4>
+                        <p>Mono-split – Basse-Terre</p>
                     </div>
                 </div>
             </div>
@@ -2533,6 +2555,10 @@
                         <a href="mailto:freshclimp@gmail.com">freshclimp@gmail.com</a>
                     </li>
                 </ul>
+            </div>
+            <div>
+                <h4>Partenaires</h4>
+                <img src="images/partenaire.png" alt="partenaire">
             </div>
         </div>
         <div class="footer-bottom">
@@ -3090,7 +3116,7 @@
             <div class="cookie-header">
                 <div>
                     <h3>Gestion des cookies</h3>
-                    <p>Votre vie privée nous importe</p>
+                    <p>Nous respectons votre vie privée.</p>
                 </div>
             </div>
             <div class="cookie-body">

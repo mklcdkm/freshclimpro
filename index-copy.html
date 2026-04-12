@@ -42,7 +42,7 @@
             --gold: #ffd700;
             --orange-accent: #ff6b35;
             --text-light: #e8f4ff;
-            --text-muted: #8fb4d4;
+            --text-muted: #a8c8e8;
             --card-bg: rgba(15, 45, 84, 0.8);
             --card-border: rgba(0, 207, 255, 0.2);
             --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
@@ -258,7 +258,9 @@
             align-items: center;
             justify-content: center;
             padding: 8rem 1.5rem 4rem;
-            background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 50%, var(--navy-light) 100%);
+            background: 
+                linear-gradient(135deg, rgba(6, 21, 41, 0.85) 0%, rgba(10, 31, 60, 0.85) 50%, rgba(15, 45, 84, 0.85) 100%),
+                url('images/salon-clim.jpg') center/cover no-repeat;
             overflow: hidden;
         }
 
@@ -297,13 +299,20 @@
             max-width: 900px;
             text-align: center;
         }
-
+        .hero-content .slogan{
+            background-clip: text;
+            color: transparent;
+            background-image: linear-gradient(135deg,#0af,#75dbf0);
+        }
         .hero-badge {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background: linear-gradient(135deg, var(--cyan), var(--green-accent));
-            color: var(--navy-dark);
+            /* background: linear-gradient(135deg, var(--cyan), var(--green-accent)); */
+            border-color: #00aaff4d;
+            background-color: #00aaff1a;
+            /* color: var(--navy-dark); */
+            color: var(--cyan);
             padding: 0.5rem 1.5rem;
             border-radius: 25px;
             font-weight: 700;
@@ -765,7 +774,7 @@
         }
 
         .pricing-card .price {
-            font-size: 2.2rem;
+            font-size: 2.1rem;
             font-weight: 900;
             color: var(--cyan);
             margin: 1rem 0;
@@ -1089,8 +1098,7 @@
         }
 
         .form-group select option {
-            /* background: var(--navy-dark); */
-            background: linear-gradient(180deg, var(--navy-dark) 0%, var(--navy) 100%);
+            background: var(--navy-dark);
             color: var(--text-light);
         }
 
@@ -1105,6 +1113,91 @@
         .form-group textarea {
             min-height: 120px;
             resize: vertical;
+        }
+
+        /* RGPD Consent */
+        .rgpd-consent {
+           /*  background: rgba(0, 207, 255, 0.05);
+            border: 1px solid rgba(0, 207, 255, 0.2);
+            border-radius: 12px; */
+            padding: 1rem 1.25rem;
+        }
+
+        .rgpd-label {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            cursor: pointer;
+        }
+
+        .rgpd-label input[type="checkbox"] {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .rgpd-checkmark {
+            flex-shrink: 0;
+            width: 22px;
+            height: 22px;
+            margin-top: 2px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(0, 207, 255, 0.4);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .rgpd-checkmark::after {
+            content: '';
+            display: none;
+            width: 6px;
+            height: 11px;
+            border: 2px solid var(--navy-dark);
+            border-top: none;
+            border-left: none;
+            transform: rotate(45deg) translateY(-1px);
+        }
+
+        .rgpd-label input[type="checkbox"]:checked + .rgpd-checkmark {
+            background: var(--cyan);
+            border-color: var(--cyan);
+        }
+
+        .rgpd-label input[type="checkbox"]:checked + .rgpd-checkmark::after {
+            display: block;
+        }
+
+        .rgpd-label input[type="checkbox"]:focus + .rgpd-checkmark {
+            box-shadow: 0 0 0 3px rgba(0, 207, 255, 0.25);
+        }
+
+        .rgpd-text {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .rgpd-text strong {
+            color: var(--text-light);
+        }
+
+        .rgpd-text a {
+            color: var(--cyan);
+            text-decoration: none;
+        }
+
+        .rgpd-text a:hover {
+            text-decoration: underline;
+        }
+
+        .rgpd-required {
+            color: #ff6b6b;
+            font-weight: 700;
+            margin-left: 2px;
         }
 
         .form-row {
@@ -1698,18 +1791,75 @@
             transform: translateX(0);
         }
 
+        /* Reduced Motion - RGAA 13.2 / WCAG 2.3.3 */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+
+            .particle {
+                display: none;
+            }
+
+            #ice-particles {
+                display: none;
+            }
+        }
+
         .coordonee {
             font-weight: 600;
+        }
+
+        /* Skip Link - RGAA 12.8 */
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--cyan);
+            color: var(--navy-dark);
+            padding: 1rem 2rem;
+            border-radius: 0 0 10px 10px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            z-index: 10000;
+            transition: top 0.3s;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* Screen Reader Only - Visually hidden but accessible */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
         }
     </style>
 </head>
 
 <body>
+    <!-- Skip Link - Lien d'évitement (RGAA 12.8) -->
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    
     <!-- Ice Particles Background -->
-    <div id="ice-particles"></div>
+    <div id="ice-particles" aria-hidden="true"></div>
 
     <!-- Header -->
-    <header class="header" id="header">
+    <header class="header" id="header" role="banner">
         <div class="header-inner">
             <div class="logo-container">
                 <img src="images/logo.png" alt="FRESH CLIM PRO Logo" class="logo-img">
@@ -1723,7 +1873,7 @@
 
                 </div>
             </div>
-            <nav>
+            <nav aria-label="Navigation principale">
                 <ul class="nav-links">
                     <li><a href="#accueil">Accueil</a></li>
                     <li><a href="#prestations">Prestations</a></li>
@@ -1734,63 +1884,69 @@
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
-            <a href="tel:0690383271" class="header-cta">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <a href="tel:0690383271" class="header-cta" aria-label="Appeler le 0690 38 32 71">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                     <path
                         d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
                 </svg>
                 0690 38 32 71
             </a>
-            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">☰</button>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileNav">
+                <span aria-hidden="true">☰</span>
+            </button>
         </div>
     </header>
 
     <!-- Mobile Navigation -->
-    <div class="mobile-nav" id="mobileNav">
-        <button class="mobile-nav-close" id="mobileNavClose">✕</button>
-        <a href="#accueil" class="mobile-nav-link">Accueil</a>
-        <a href="#prestations" class="mobile-nav-link">Prestations</a>
-        <a href="#apropos" class="mobile-nav-link">A propos</a>
-        <a href="#tarifs" class="mobile-nav-link">Tarifs</a>
-        <a href="#realisations" class="mobile-nav-link">Réalisations</a>
-        <a href="#avis" class="mobile-nav-link">Avis</a>
-        <a href="#contact" class="mobile-nav-link">Contact</a>
-        <a href="tel:0690383271" class="btn btn-green">
-            <svg class="icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-            </svg>
-            0690 38 32 71
-        </a>
+    <div class="mobile-nav" id="mobileNav" role="dialog" aria-label="Menu mobile" aria-hidden="true">
+        <button class="mobile-nav-close" id="mobileNavClose" aria-label="Fermer le menu">✕</button>
+        <nav aria-label="Navigation mobile">
+            <a href="#accueil" class="mobile-nav-link">Accueil</a>
+            <a href="#prestations" class="mobile-nav-link">Prestations</a>
+            <a href="#apropos" class="mobile-nav-link">A propos</a>
+            <a href="#tarifs" class="mobile-nav-link">Tarifs</a>
+            <a href="#realisations" class="mobile-nav-link">Réalisations</a>
+            <a href="#avis" class="mobile-nav-link">Avis</a>
+            <a href="#contact" class="mobile-nav-link">Contact</a>
+            <a href="tel:0690383271" class="btn btn-green" aria-label="Appeler le 0690 38 32 71">
+                <svg class="icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                </svg>
+                0690 38 32 71
+            </a>
+        </nav>
     </div>
 
+    <!-- Main Content -->
+    <main id="main-content">
     <!-- Hero Section -->
     <section class="hero" id="accueil">
         <!-- Tropical Background Graphic -->
-        <div class="hero-bg-graphic">
+        <!-- <div class="hero-bg-graphic">
             <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-                <!-- Palm tree silhouettes -->
+                <!-- Palm tree silhouettes 
                 <path
                     d="M100 900 L120 600 Q140 400 200 300 Q160 350 140 400 Q130 350 150 280 Q110 320 100 400 Q80 320 60 280 Q90 350 100 400 Q80 350 40 300 Q100 400 120 600 Z"
                     fill="currentColor" opacity="0.5" />
                 <path
                     d="M1300 900 L1280 550 Q1260 380 1200 280 Q1240 330 1260 380 Q1270 330 1250 260 Q1290 300 1300 380 Q1320 300 1340 260 Q1310 330 1300 380 Q1320 330 1360 280 Q1300 380 1280 550 Z"
                     fill="currentColor" opacity="0.5" />
-                <!-- Mountains -->
+                <!-- Mountains 
                 <path
                     d="M0 700 Q200 500 400 600 Q600 450 800 550 Q1000 400 1200 500 Q1350 450 1440 550 L1440 900 L0 900 Z"
                     fill="currentColor" opacity="0.3" />
-                <!-- Ocean waves -->
+                <!-- Ocean waves 
                 <path
                     d="M0 750 Q180 720 360 740 Q540 760 720 730 Q900 700 1080 740 Q1260 780 1440 750 L1440 900 L0 900 Z"
                     fill="currentColor" opacity="0.2" />
             </svg>
-        </div>
+        </div> -->
 
         <div class="hero-content">
             <span class="hero-badge">
-                <svg class="icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <!-- <svg class="icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12 2C10.9 2 10 2.9 10 4C10 4.7 10.3 5.4 10.8 5.8C9.2 6.3 8 7.8 8 9.5V16C8 18.2 9.8 20 12 20C14.2 20 16 18.2 16 16V9.5C16 7.8 14.8 6.3 13.2 5.8C13.7 5.4 14 4.7 14 4C14 2.9 13.1 2 12 2ZM12 3C12.6 3 13 3.4 13 4C13 4.6 12.6 5 12 5C11.4 5 11 4.6 11 4C11 3.4 11.4 3 12 3ZM12 7C12.6 7 13 7.4 13 8C13 8.6 12.6 9 12 9C11.4 9 11 8.6 11 8C11 7.4 11.4 7 12 7ZM10 10C10 9.4 10.4 9 11 9H13C13.6 9 14 9.4 14 10V16C14 17.1 13.1 18 12 18C10.9 18 10 17.1 10 16V10Z"/>
-                </svg>
+                </svg> -->
                 Expert Climatisation Guadeloupe
             </span>
             <h1>
@@ -1799,7 +1955,11 @@
                         <path d="M12 23C16.5 23 20 19.5 20 15C20 10 17 7 15 5C14.8 4.8 14.5 5 14.5 5.2C14.2 6.5 13 8 12 8C11.5 8 11 7.5 11 6.5C11 5 12 3 12 3C12 3 7 6 7 12C7 12.5 7 13 7.1 13.5C5.5 12.5 4.5 11 4.5 11C4.5 11 3 13.5 3 15.5C3 19 6 23 12 23ZM12 21C7.6 21 5 18 5 15.5C5 14.5 5.5 13.5 6 13C6 13 7 14.5 8.5 15C8.2 14.2 8 13.3 8 12.5C8 9.5 10.5 6.5 11.5 5.5C11.8 6.5 12.5 7 13 7C13.5 7 14 6.5 14.2 5.8C15.5 7.2 18 10 18 15C18 18.3 15.3 21 12 21Z"/>
                     </svg>
                 </span>
-                STOP À LA CHALEUR ÉTOUFFANTE !
+                <span>Votre confort</span>
+                <br>
+                <span class ="slogan">thermique,</span>
+                <br>
+                <span>notre expertise</span> 
                 <span class="fire-icon">
                     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12 23C16.5 23 20 19.5 20 15C20 10 17 7 15 5C14.8 4.8 14.5 5 14.5 5.2C14.2 6.5 13 8 12 8C11.5 8 11 7.5 11 6.5C11 5 12 3 12 3C12 3 7 6 7 12C7 12.5 7 13 7.1 13.5C5.5 12.5 4.5 11 4.5 11C4.5 11 3 13.5 3 15.5C3 19 6 23 12 23ZM12 21C7.6 21 5 18 5 15.5C5 14.5 5.5 13.5 6 13C6 13 7 14.5 8.5 15C8.2 14.2 8 13.3 8 12.5C8 9.5 10.5 6.5 11.5 5.5C11.8 6.5 12.5 7 13 7C13.5 7 14 6.5 14.2 5.8C15.5 7.2 18 10 18 15C18 18.3 15.3 21 12 21Z"/>
@@ -1833,11 +1993,11 @@
 
             <div class="hero-buttons">
                 <a href="#contact" class="btn btn-primary">Demander un devis gratuit →</a>
-                <a href="tel:0690383271" class="btn btn-secondary">
-                    <svg class="icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <a href="#prestations" class="btn btn-secondary">
+                    <!-- <svg class="icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-                    </svg>
-                    Nous appeler : 0690 38 32 71
+                    </svg> -->
+                    Découvrir nos prestations
                 </a>
             </div>
         </div>
@@ -2008,13 +2168,14 @@
                             <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V6h16v12zM6 10h2v2H6zm0 4h2v2H6zm4-4h2v2h-2zm0 4h2v2h-2zm4-4h2v2h-2zm0 4h2v2h-2z"/>
                         </svg>
                     </div> -->
-                    <h3>Entretien / Dépannage</h3>
-                    <div class="price">Sur devis</div>
+                    <h3>Entretien</h3>
+                    <div class="price">À partir de 54.25 €</div>
                     <ul class="pricing-features">
-                        <li>Nettoyage filtres</li>
-                        <li>Vérification circuit</li>
+                        <li>Nettoyage turbine filtres</li>
+                        <li>Vérification gaz</li>
                         <li>Recharge fluide</li>
-                        <li>Rapport d'intervention</li>
+                        <li>Traitement anti acarien</li>
+                        <li>Traitement anti bactérien</li>
                     </ul>
                     <a href="#contact" class="btn btn-secondary">Nous contacter</a>
                 </div>
@@ -2025,13 +2186,12 @@
                             <path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/>
                         </svg>
                     </div> -->
-                    <h3>Multi-Split / Tertiaire</h3>
+                    <h3>Dépanage</h3>
                     <div class="price">Devis personnalisé</div>
                     <ul class="pricing-features">
-                        <li>Audit sur place</li>
-                        <li>Installation multi-pièces</li>
-                        <li>Bureaux et commerces</li>
-                        <li>Solution sur mesure</li>
+                        <li>Diagnostique</li>
+                        <li>Changement de pièces</li>
+                        <li>Réparation </li>
                     </ul>
                     <a href="#contact" class="btn btn-secondary">Devis gratuit</a>
                 </div>
@@ -2059,7 +2219,7 @@
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
                         </svg>
-                        <span>Image réalisation 1</span>
+                        <span><img src="images/installation.jpg" alt="image installation" class=""></span>
                     </div>
                     <div class="realisation-overlay">
                         <h4>Installation résidentielle</h4>
@@ -2071,11 +2231,11 @@
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
                         </svg>
-                        <span>Image réalisation 2</span>
+                        <span><img src="images/avant_apres.jpg" alt="salon" class=""></span>
                     </div>
                     <div class="realisation-overlay">
-                        <h4>Installation commerciale</h4>
-                        <p>Multi-split – Pointe-à-Pitre</p>
+                        <h4>Remplacement avant/après </h4>
+                        <p>Multi-split – Sainte-Anne</p>
                     </div>
                 </div>
                 <div class="realisation-card fade-in">
@@ -2083,11 +2243,23 @@
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
                         </svg>
-                        <span>Image réalisation 3</span>
+                        <span><img src="images/westpoint-plusieur.jpg" alt="salon" class=""></span>
                     </div>
                     <div class="realisation-overlay">
                         <h4>Rénovation complète</h4>
                         <p>Gainable – Basse-Terre</p>
+                    </div>
+                </div>
+                 <div class="realisation-card fade-in">
+                    <div class="realisation-placeholder">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+                        </svg>
+                        <span><img src="images/westpoint2.jpg" alt="salon" class=""></span>
+                    </div>
+                    <div class="realisation-overlay">
+                        <h4>Rénovation complète</h4>
+                        <p>Mono-split – Basse-Terre</p>
                     </div>
                 </div>
             </div>
@@ -2212,46 +2384,72 @@
                 <p>Remplissez le formulaire ci-dessous et recevez votre devis sous 24h</p>
             </div>
             <div class="contact-grid">
-                <form class="contact-form fade-in-left" id="contactForm">
+                <form class="contact-form fade-in-left" id="contactForm" novalidate>
+                    <p id="required-fields-note" style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">
+                        <span aria-hidden="true">*</span> Les champs obligatoires sont indiqués avec une étoile
+                    </p>
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="name">Nom complet *</label>
-                            <input type="text" id="name" name="name" required placeholder="Votre nom et prénom">
+                            <label for="name">Nom complet <span aria-hidden="true">*</span></label>
+                            <input type="text" id="name" name="name" required aria-required="true" placeholder="Votre nom et prénom" aria-describedby="name-error">
+                            <span id="name-error" class="form-error" role="alert" style="display: none; color: #ff6b6b; font-size: 0.85rem; margin-top: 0.25rem;"></span>
                         </div>
                         <div class="form-group">
-                            <label for="phone">Téléphone *</label>
-                            <input type="tel" id="phone" name="phone" required placeholder="0690 XX XX XX">
+                            <label for="phone">Téléphone <span aria-hidden="true">*</span></label>
+                            <input type="tel" id="phone" name="phone" required aria-required="true" placeholder="0690 XX XX XX" aria-describedby="phone-error">
+                            <span id="phone-error" class="form-error" role="alert" style="display: none; color: #ff6b6b; font-size: 0.85rem; margin-top: 0.25rem;"></span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email" placeholder="votre@email.com">
+                        <input type="email" id="email" name="email" placeholder="votre@email.com" aria-describedby="email-error">
+                        <span id="email-error" class="form-error" role="alert" style="display: none; color: #ff6b6b; font-size: 0.85rem; margin-top: 0.25rem;"></span>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="service">Type de prestation *</label>
-                            <select id="service" name="service" required>
+                            <label for="service">Type de prestation <span aria-hidden="true">*</span></label>
+                            <select id="service" name="service" required aria-required="true" aria-describedby="service-error">
                                 <option value="">Sélectionnez...</option>
                                 <option value="installation">Nouvelle Installation</option>
-                                <option value="entretien">Remplacement</option>
+                                <option value="remplacement">Remplacement</option>
                                 <option value="entretien">Entretien</option>
                                 <option value="depannage">Dépannage</option>
                                 <option value="autre">Autre</option>
                             </select>
+                            <span id="service-error" class="form-error" role="alert" style="display: none; color: #ff6b6b; font-size: 0.85rem; margin-top: 0.25rem;"></span>
                         </div>
                         <div class="form-group">
-                            <label for="commune">Commune en Guadeloupe *</label>
-                            <input type="text" id="commune" name="commune" required placeholder="Votre commune">
+                            <label for="commune">Commune en Guadeloupe <span aria-hidden="true">*</span></label>
+                            <input type="text" id="commune" name="commune" required aria-required="true" placeholder="Votre commune" aria-describedby="commune-error">
+                            <span id="commune-error" class="form-error" role="alert" style="display: none; color: #ff6b6b; font-size: 0.85rem; margin-top: 0.25rem;"></span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="surface">Surface à climatiser (m²)</label>
-                        <input type="number" id="surface" name="surface" placeholder="Ex: 50 si vous connaisez la surface à climatiser">
+                        <input type="number" id="surface" name="surface" placeholder="Ex: 50">
                     </div>
                     <div class="form-group">
                         <label for="message">Message</label>
-                        <textarea id="message" name="message" placeholder="Décrivez votre besoin..."></textarea>
+                        <textarea id="message" name="message" placeholder="Décrivez votre besoin..." aria-describedby="message-error"></textarea>
+                        <span id="message-error" class="form-error" role="alert" style="display: none; color: #ff6b6b; font-size: 0.85rem; margin-top: 0.25rem;"></span>
                     </div>
+
+                    <!-- RGPD Consent -->
+                    <div class="rgpd-consent" id="rgpd-consent-group">
+                        <label class="rgpd-label">
+                            <input type="checkbox" id="rgpdConsent" name="rgpdConsent" required aria-required="true" aria-describedby="rgpd-error">
+                            <span class="rgpd-checkmark"></span>
+                            <span class="rgpd-text">
+                                J'accepte que mes données personnelles soient utilisées par <strong>FRESH CLIM PRO</strong> dans le seul but de traiter ma demande de devis, conformément au
+                                <a href="mentions-legales.html" target="_blank" rel="noopener">RGPD</a>.
+                                Ces données ne seront ni vendues ni transmises à des tiers.
+                                <span class="rgpd-required" aria-hidden="true">*</span>
+                                <span class="sr-only">champ obligatoire</span>
+                            </span>
+                        </label>
+                        <span id="rgpd-error" class="form-error" role="alert" style="display: none; color: #ff6b6b; font-size: 0.85rem; margin-top: 0.25rem;"></span>
+                    </div>
+                    <br>
                     <button type="submit" class="btn btn-primary" style="width: 100%;">Envoyer ma demande →</button>
                 </form>
 
@@ -2291,8 +2489,11 @@
         </div>
     </section>
 
+    </main>
+    <!-- End Main Content -->
+
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="footer-grid">
             <div class="footer-brand">
                 <div class="logo-container">
@@ -2335,7 +2536,7 @@
                     <li><a href="#prestations">Installation</a></li>
                     <li><a href="#prestations">Entretien</a></li>
                     <li><a href="#prestations">Dépannage</a></li>
-                    <li><a href="#tarifs">Devis gratuit</a></li>
+                    <!-- <li><a href="#tarifs">Devis gratuit</a></li> -->
                 </ul>
             </div>
             <div>
@@ -2354,6 +2555,10 @@
                         <a href="mailto:freshclimp@gmail.com">freshclimp@gmail.com</a>
                     </li>
                 </ul>
+            </div>
+            <div>
+                <h4>Partenaires</h4>
+                <img src="images/partenaire.png" alt="partenaire">
             </div>
         </div>
         <div class="footer-bottom">
@@ -2411,19 +2616,37 @@
 
             menuBtn.addEventListener('click', () => {
                 mobileNav.classList.add('active');
+                mobileNav.setAttribute('aria-hidden', 'false');
+                menuBtn.setAttribute('aria-expanded', 'true');
                 document.body.style.overflow = 'hidden';
+                // Focus first link
+                setTimeout(() => links[0]?.focus(), 100);
             });
 
             closeBtn.addEventListener('click', () => {
                 mobileNav.classList.remove('active');
+                mobileNav.setAttribute('aria-hidden', 'true');
+                menuBtn.setAttribute('aria-expanded', 'false');
                 document.body.style.overflow = '';
+                // Return focus to menu button
+                menuBtn.focus();
             });
 
             links.forEach(link => {
                 link.addEventListener('click', () => {
                     mobileNav.classList.remove('active');
+                    mobileNav.setAttribute('aria-hidden', 'true');
+                    menuBtn.setAttribute('aria-expanded', 'false');
                     document.body.style.overflow = '';
+                    menuBtn.focus();
                 });
+            });
+
+            // Close on Escape key
+            mobileNav.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    closeBtn.click();
+                }
             });
         }
 
@@ -2449,8 +2672,50 @@
         function initForm() {
             const form = document.getElementById('contactForm');
 
+            // Clear errors on input
+            form.querySelectorAll('input, select, textarea').forEach(input => {
+                input.addEventListener('input', () => clearFieldError(input));
+                input.addEventListener('blur', () => clearFieldError(input));
+            });
+
             form.addEventListener('submit', (e) => {
                 e.preventDefault();
+                clearAllErrors();
+
+                let hasErrors = false;
+                let firstErrorField = null;
+
+                // Validate required fields
+                const requiredFields = form.querySelectorAll('[required]');
+                for (const field of requiredFields) {
+                    if (!field.value.trim() || (field.type === 'checkbox' && !field.checked)) {
+                        const fieldName = field.labels?.[0]?.textContent?.replace(/\*/g, '').trim() || field.name;
+                        showFieldError(field, `${fieldName} est obligatoire`);
+                        if (!firstErrorField) firstErrorField = field;
+                        hasErrors = true;
+                    }
+                }
+
+                // Validate email format if provided
+                const emailField = form.querySelector('#email');
+                if (emailField.value && !isValidEmail(emailField.value)) {
+                    showFieldError(emailField, 'Veuillez entrer un email valide');
+                    if (!firstErrorField) firstErrorField = emailField;
+                    hasErrors = true;
+                }
+
+                // Vérification consentement RGPD
+                const rgpdConsent = document.getElementById('rgpdConsent');
+                if (!rgpdConsent.checked) {
+                    showFieldError(rgpdConsent, 'Vous devez accepter pour continuer');
+                    if (!firstErrorField) firstErrorField = rgpdConsent;
+                    hasErrors = true;
+                }
+
+                if (hasErrors) {
+                    firstErrorField.focus();
+                    return;
+                }
 
                 // Get form data
                 const formData = new FormData(form);
@@ -2475,6 +2740,43 @@
             });
         }
 
+        function isValidEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+
+        function showFieldError(field, message) {
+            const errorElement = field.getAttribute('aria-describedby');
+            if (errorElement) {
+                const errorEl = document.getElementById(errorElement);
+                if (errorEl) {
+                    errorEl.textContent = message;
+                    errorEl.style.display = 'block';
+                }
+            }
+            field.setAttribute('aria-invalid', 'true');
+        }
+
+        function clearFieldError(field) {
+            field.removeAttribute('aria-invalid');
+            const errorElement = field.getAttribute('aria-describedby');
+            if (errorElement) {
+                const errorEl = document.getElementById(errorElement);
+                if (errorEl) {
+                    errorEl.textContent = '';
+                    errorEl.style.display = 'none';
+                }
+            }
+        }
+
+        function clearAllErrors() {
+            const form = document.getElementById('contactForm');
+            form.querySelectorAll('[aria-invalid="true"]').forEach(field => clearFieldError(field));
+            document.querySelectorAll('.form-error[role="alert"]').forEach(error => {
+                error.textContent = '';
+                error.style.display = 'none';
+            });
+        }
+
         // Initialize everything on DOM load
         document.addEventListener('DOMContentLoaded', () => {
             createParticles();
@@ -2482,10 +2784,406 @@
             initMobileMenu();
             initScrollAnimations();
             initForm();
+            initCookieBanner();
 
             window.addEventListener('scroll', handleHeaderScroll);
         });
+
+        // ── Cookie Banner ──────────────────────────────────────────
+        function initCookieBanner() {
+            if (localStorage.getItem('cookieConsent')) return;
+            setTimeout(() => {
+                const banner = document.getElementById('cookieBanner');
+                banner.classList.add('visible');
+                banner.setAttribute('aria-hidden', 'false');
+                // Focus first button
+                banner.querySelector('button')?.focus();
+            }, 800);
+        }
+
+        function acceptAllCookies() {
+            localStorage.setItem('cookieConsent', 'all');
+            closeCookieBanner();
+        }
+
+        function acceptEssentialCookies() {
+            localStorage.setItem('cookieConsent', 'essential');
+            closeCookieBanner();
+        }
+
+        function refuseAllCookies() {
+            localStorage.setItem('cookieConsent', 'refused');
+            closeCookieBanner();
+        }
+
+        function openCookieSettings() {
+            document.getElementById('cookieSimple').style.display = 'none';
+            document.getElementById('cookieDetail').style.display = 'block';
+        }
+
+        function backToCookieSimple() {
+            document.getElementById('cookieDetail').style.display = 'none';
+            document.getElementById('cookieSimple').style.display = 'block';
+        }
+
+        function saveCustomCookies() {
+            const prefs = {
+                essential: true,
+                analytics: document.getElementById('cookieAnalytics').checked,
+                marketing: document.getElementById('cookieMarketing').checked,
+            };
+            localStorage.setItem('cookieConsent', JSON.stringify(prefs));
+            closeCookieBanner();
+        }
+
+        function closeCookieBanner() {
+            const banner = document.getElementById('cookieBanner');
+            banner.classList.remove('visible');
+            banner.setAttribute('aria-hidden', 'true');
+            setTimeout(() => banner.style.display = 'none', 400);
+        }
     </script>
+
+    <!-- ══ COOKIE BANNER ══════════════════════════════════════════ -->
+    <style>
+        #cookieBanner {
+            position: fixed;
+            bottom: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(120px);
+            width: calc(100% - 3rem);
+            max-width: 680px;
+            background: rgba(6, 21, 41, 0.97);
+            border: 1px solid rgba(0, 207, 255, 0.3);
+            border-radius: 20px;
+            padding: 2rem;
+            z-index: 9999;
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0,207,255,0.1);
+            backdrop-filter: blur(16px);
+            opacity: 0;
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease;
+        }
+
+        #cookieBanner.visible {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        .cookie-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .cookie-icon {
+            width: 42px; height: 42px;
+            background: linear-gradient(135deg, var(--cyan), var(--cyan-dark));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.2rem;
+        }
+
+        .cookie-header h3 {
+            font-family: 'Exo 2', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-light);
+        }
+
+        .cookie-header p {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-top: 0.1rem;
+        }
+
+        .cookie-body p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 1.25rem;
+        }
+
+        .cookie-body a {
+            color: var(--cyan);
+            text-decoration: none;
+        }
+
+        .cookie-body a:hover { text-decoration: underline; }
+
+        .cookie-buttons {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .cookie-btn {
+            flex: 1;
+            min-width: 120px;
+            padding: 0.65rem 1rem;
+            border-radius: 10px;
+            font-family: 'Exo 2', sans-serif;
+            font-weight: 700;
+            font-size: 0.85rem;
+            cursor: pointer;
+            border: none;
+            transition: all 0.25s;
+            white-space: nowrap;
+        }
+
+        .cookie-btn-accept {
+            background: linear-gradient(135deg, var(--cyan), var(--cyan-dark));
+            color: var(--navy-dark);
+        }
+
+        .cookie-btn-accept:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,207,255,0.35);
+        }
+
+        .cookie-btn-essential {
+            background: transparent;
+            color: var(--text-light);
+            border: 1.5px solid rgba(0,207,255,0.35);
+        }
+
+        .cookie-btn-essential:hover {
+            border-color: var(--cyan);
+            background: rgba(0,207,255,0.08);
+        }
+
+        .cookie-btn-settings {
+            background: transparent;
+            color: var(--text-muted);
+            border: 1.5px solid rgba(255,255,255,0.1);
+            flex: 0 0 auto;
+        }
+
+        .cookie-btn-settings:hover {
+            color: var(--text-light);
+            border-color: rgba(255,255,255,0.25);
+        }
+
+        .cookie-btn-refuse {
+            background: transparent;
+            color: var(--text-muted);
+            border: 1.5px solid rgba(255,255,255,0.15);
+            flex: 0 0 auto;
+        }
+
+        .cookie-btn-refuse:hover {
+            color: var(--text-light);
+            border-color: rgba(255,255,255,0.3);
+            background: rgba(255,255,255,0.05);
+        }
+
+        .cookie-btn-close-banner {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.85rem;
+            cursor: pointer;
+            padding: 0.25rem 0.5rem;
+            transition: color 0.2s;
+            z-index: 1;
+        }
+
+        .cookie-btn-close-banner:hover {
+            color: var(--text-light);
+        }
+
+        /* Detail panel */
+        #cookieDetail { display: none; }
+
+        .cookie-toggle-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.85rem 0;
+            border-bottom: 1px solid rgba(0,207,255,0.08);
+        }
+
+        .cookie-toggle-row:last-of-type { border-bottom: none; }
+
+        .cookie-toggle-info strong {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        .cookie-toggle-info span {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .cookie-toggle {
+            position: relative;
+            width: 44px; height: 24px;
+            flex-shrink: 0;
+            margin-left: 1rem;
+        }
+
+        .cookie-toggle input { opacity: 0; width: 0; height: 0; }
+
+        .cookie-toggle-slider {
+            position: absolute;
+            inset: 0;
+            background: rgba(255,255,255,0.15);
+            border-radius: 24px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .cookie-toggle-slider::before {
+            content: '';
+            position: absolute;
+            width: 18px; height: 18px;
+            left: 3px; top: 3px;
+            background: white;
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+
+        .cookie-toggle input:checked + .cookie-toggle-slider {
+            background: var(--cyan);
+        }
+
+        .cookie-toggle input:checked + .cookie-toggle-slider::before {
+            transform: translateX(20px);
+        }
+
+        .cookie-toggle input:disabled + .cookie-toggle-slider {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .cookie-back-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 0.82rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0;
+            margin-bottom: 1rem;
+            transition: color 0.2s;
+        }
+
+        .cookie-back-btn:hover { color: var(--cyan); }
+
+        @media (max-width: 480px) {
+            #cookieBanner {
+                bottom: 0;
+                left: 0;
+                right: 0;
+                width: 100%;
+                transform: translateY(120px);
+                border-radius: 20px 20px 0 0;
+                max-width: 100%;
+            }
+
+            #cookieBanner.visible {
+                transform: translateY(0);
+            }
+
+            .cookie-buttons {
+                flex-direction: column;
+            }
+
+            .cookie-btn {
+                width: 100%;
+                flex: unset;
+            }
+        }
+    </style>
+
+    <div id="cookieBanner" role="dialog" aria-label="Gestion des cookies" aria-modal="true" aria-hidden="true">
+
+        <button class="cookie-btn-close-banner" onclick="refuseAllCookies()" aria-label="Continuer sans accepter les cookies">Continuer sans accepter ✕</button>
+
+        <!-- Vue simple -->
+        <div id="cookieSimple">
+            <div class="cookie-header">
+                <div>
+                    <h3>Gestion des cookies</h3>
+                    <p>Nous respectons votre vie privée.</p>
+                </div>
+            </div>
+            <div class="cookie-body">
+                <p id="cookie-description">
+                    Nous utilisons des cookies pour assurer le bon fonctionnement du site et améliorer votre expérience.
+                    Vous pouvez accepter tous les cookies, n'accepter que les essentiels, ou personnaliser vos choix.
+                    <br><a href="mentions-legales.html" target="_blank" rel="noopener">En savoir plus dans nos mentions légales →</a>
+                </p>
+                <div class="cookie-buttons" role="group" aria-describedby="cookie-description">
+                    <button class="cookie-btn cookie-btn-accept" onclick="acceptAllCookies()" aria-label="Tout accepter">✓ Tout accepter</button>
+                    <button class="cookie-btn cookie-btn-essential" onclick="acceptEssentialCookies()" aria-label="N'accepter que les cookies essentiels">Essentiels uniquement</button>
+                    <button class="cookie-btn cookie-btn-settings" onclick="openCookieSettings()" aria-label="Paramétrer les cookies">⚙ Paramétrer</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vue détaillée -->
+        <div id="cookieDetail">
+            <button class="cookie-back-btn" onclick="backToCookieSimple()">
+                ← Retour
+            </button>
+            <div class="cookie-header">
+                <div class="cookie-icon">⚙️</div>
+                <div>
+                    <h3>Paramétrer mes cookies</h3>
+                    <p>Choisissez ce que vous autorisez</p>
+                </div>
+            </div>
+            <div class="cookie-body">
+                <div class="cookie-toggle-row">
+                    <div class="cookie-toggle-info">
+                        <strong>🔒 Cookies essentiels</strong>
+                        <span>Nécessaires au fonctionnement du site. Ne peuvent pas être désactivés.</span>
+                    </div>
+                    <label class="cookie-toggle">
+                        <input type="checkbox" checked disabled>
+                        <span class="cookie-toggle-slider"></span>
+                    </label>
+                </div>
+                <div class="cookie-toggle-row">
+                    <div class="cookie-toggle-info">
+                        <strong>📊 Cookies analytiques</strong>
+                        <span>Nous aident à comprendre comment vous utilisez le site (ex: Google Analytics).</span>
+                    </div>
+                    <label class="cookie-toggle">
+                        <input type="checkbox" id="cookieAnalytics">
+                        <span class="cookie-toggle-slider"></span>
+                    </label>
+                </div>
+                <div class="cookie-toggle-row">
+                    <div class="cookie-toggle-info">
+                        <strong>📣 Cookies marketing</strong>
+                        <span>Permettent de vous proposer des publicités personnalisées.</span>
+                    </div>
+                    <label class="cookie-toggle">
+                        <input type="checkbox" id="cookieMarketing">
+                        <span class="cookie-toggle-slider"></span>
+                    </label>
+                </div>
+                <div class="cookie-buttons" style="margin-top: 1.25rem;">
+                    <button class="cookie-btn cookie-btn-accept" onclick="saveCustomCookies()">✓ Enregistrer mes choix</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
 </body>
 
 </html>

@@ -1,0 +1,39 @@
+# ── Netlify Configuration – FRESH CLIM PRO ───────────────────────────────────
+
+[build]
+  publish = "."        # Répertoire racine du site (fichiers HTML/CSS/images)
+
+# ── Redirections & headers ────────────────────────────────────────────────────
+
+# Redirige HTTP → HTTPS automatiquement
+[[redirects]]
+  from   = "http://freshclimpro.netlify.app/*"
+  to     = "https://freshclimpro.netlify.app/:splat"
+  status = 301
+  force  = true
+
+# Page 404 personnalisée (optionnel – crée un 404.html si besoin)
+[[redirects]]
+  from   = "/*"
+  to     = "/index.html"
+  status = 404
+
+# ── Headers de sécurité ───────────────────────────────────────────────────────
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options        = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy        = "strict-origin-when-cross-origin"
+    Permissions-Policy     = "camera=(), microphone=(), geolocation=()"
+
+# ── Cache des assets statiques ────────────────────────────────────────────────
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

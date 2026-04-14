@@ -119,6 +119,7 @@ h6 {
     color: inherit;
     cursor: pointer;
     transition: opacity 0.3s;
+    text-decoration: none;
 }
 
 .logo-container:hover {

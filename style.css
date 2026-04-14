@@ -115,6 +115,14 @@ h6 {
     display: flex;
     align-items: center;
     gap: 0.75rem;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.logo-container:hover {
+    opacity: 0.85;
 }
 
 .logo-img {
@@ -130,21 +138,21 @@ h6 {
 }
 
 .logo-text .brand {
-    font-family: 'Exo 2', sans-serif;
+    font-family: 'DM Sans', sans-serif;
     font-size: 1.4rem;
-    font-weight: 800;
-    font-style: italic;
+    font-weight: 700;
     color: var(--cyan);
     line-height: 1.1;
+    letter-spacing: -0.5px;
 }
 
 .logo-text .brand-white {
-    font-family: 'Exo 2', sans-serif;
+    font-family: 'DM Sans', sans-serif;
     font-size: 1.4rem;
-    font-weight: 800;
-    font-style: italic;
+    font-weight: 700;
     color: var(--white-cool);
     line-height: 1.1;
+    letter-spacing: -0.5px;
 }
 
 .logo-text .tagline {
@@ -303,6 +311,10 @@ h6 {
     line-height: 1.1;
     margin-bottom: 1rem;
     text-shadow: 0 4px 20px rgba(0, 207, 255, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
 }
 
 .hero h1 .fire-icon {
